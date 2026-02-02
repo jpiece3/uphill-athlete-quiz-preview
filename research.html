@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Research Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.2}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.02em;margin-bottom:0.5rem}
+h2{font-size:1.5rem;font-weight:800;margin:2.5rem 0 1rem;padding-top:1rem;border-top:2px solid #E8ECF2}
+h3{font-size:1.125rem;font-weight:700;margin:1.5rem 0 0.75rem;color:#3D6B8E}
+h4{font-size:0.95rem;font-weight:700;margin:1rem 0 0.5rem;color:#4A4A68}
+p{margin-bottom:1rem;color:#4A4A68;font-size:0.95rem}
+strong{color:#1A1A2E}
+ul,ol{margin:0.75rem 0 1.25rem 1.5rem;color:#4A4A68;font-size:0.95rem}
+li{margin-bottom:0.4rem}
+blockquote{border-left:3px solid #5BA4D9;padding:0.75rem 1.25rem;margin:1rem 0 1.5rem;background:rgba(91,164,217,0.04);font-style:italic;color:#3D6B8E;font-size:0.95rem}
+
+/* Hero */
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero h1{color:#fff;font-size:2.25rem}
+.hero .subtitle{color:#B8C0CE;font-size:1.1rem;margin-top:0.5rem;margin-bottom:1.5rem}
+.hero-grid{background-image:radial-gradient(rgba(91,164,217,0.12) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin-top:1rem;position:relative;z-index:1}
+.stat{background:#2A2A42;padding:1rem;border-radius:6px;text-align:center}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:#5BA4D9}
+.stat-label{font-size:0.7rem;color:#7A7A96;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem}
+
+/* Section Cards */
+.section-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:2rem;margin-bottom:1.5rem;position:relative}
+.section-card::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+
+/* Info Grid */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.info-item{background:#F5F7FA;padding:0.75rem 1rem;border-radius:6px;border-left:3px solid #5BA4D9}
+.info-label{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#7A7A96;margin-bottom:0.25rem}
+.info-value{font-weight:600;color:#1A1A2E;font-size:0.95rem}
+
+/* Profile Cards */
+.profile-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;position:relative}
+.profile-card::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.profile-name{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:0.25rem}
+.profile-id{font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:#5BA4D9;background:rgba(91,164,217,0.08);padding:0.2em 0.5em;border-radius:3px;display:inline-block;margin-bottom:1rem}
+.products-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.75rem 0}
+.product-tag{font-size:0.75rem;font-weight:600;color:#3D8AC4;background:rgba(91,164,217,0.08);padding:0.3em 0.6em;border-radius:4px;border:1px solid rgba(91,164,217,0.15)}
+
+/* Angle Cards */
+.angle-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem;position:relative}
+.angle-card::before{content:'';position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.angle-num{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;margin-bottom:0.25rem}
+.angle-title{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;margin-bottom:0.5rem}
+.angle-hook{font-style:italic;color:#3D6B8E;margin-bottom:0.5rem;font-size:0.95rem}
+.angle-meta{display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap}
+.angle-tag{font-size:0.7rem;font-weight:600;color:#7A7A96;background:#F5F7FA;padding:0.2em 0.5em;border-radius:3px}
+
+/* Temperature Sections */
+.temp-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.35em 0.75em;border-radius:4px;margin-bottom:0.75rem}
+.temp-hot{background:rgba(34,197,94,0.1);color:#16A34A;border:1px solid rgba(34,197,94,0.2)}
+.temp-warm{background:rgba(245,158,11,0.1);color:#D97706;border:1px solid rgba(245,158,11,0.2)}
+.temp-cold{background:rgba(91,164,217,0.1);color:#3D8AC4;border:1px solid rgba(91,164,217,0.2)}
+
+/* Keyword Table */
+.kw-table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.85rem}
+.kw-table th{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#7A7A96;text-align:left;padding:0.75rem 0.5rem;border-bottom:2px solid #D8DDE6}
+.kw-table td{padding:0.6rem 0.5rem;border-bottom:1px solid #E8ECF2;color:#4A4A68}
+.kw-table tr:hover td{background:rgba(91,164,217,0.03)}
+.vol{font-weight:600;color:#1A1A2E}
+.intent{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;padding:0.2em 0.5em;border-radius:3px}
+.intent-commercial{background:rgba(245,158,11,0.1);color:#D97706}
+.intent-transactional{background:rgba(34,197,94,0.1);color:#16A34A}
+.intent-informational{background:rgba(91,164,217,0.1);color:#3D8AC4}
+.intent-navigational{background:rgba(122,122,150,0.1);color:#7A7A96}
+
+/* Competitor Cards */
+.competitor-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem}
+.competitor-name{font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;font-size:0.95rem;margin-bottom:0.25rem}
+.competitor-url{font-size:0.8rem;color:#5BA4D9;text-decoration:none}
+.competitor-detail{font-size:0.85rem;color:#4A4A68;margin:0.5rem 0}
+.competitor-opp{font-size:0.85rem;color:#3D6B8E;font-style:italic;margin-top:0.5rem;padding-left:0.75rem;border-left:2px solid #5BA4D9}
+
+/* SEO Stats */
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1rem 0}
+.seo-stat{background:#F5F7FA;padding:1rem;border-radius:6px;text-align:center;border-left:3px solid #5BA4D9}
+.seo-num{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:800;color:#1A1A2E}
+.seo-label{font-size:0.7rem;color:#7A7A96;text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem}
+
+/* Avoid list */
+.avoid-list{list-style:none;margin-left:0;display:flex;flex-wrap:wrap;gap:0.5rem}
+.avoid-list li{background:rgba(239,68,68,0.06);color:#DC2626;border:1px solid rgba(239,68,68,0.15);padding:0.3em 0.7em;border-radius:4px;font-size:0.8rem;font-weight:500}
+
+/* Brand phrases */
+.phrase-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1rem 0}
+.phrase{background:rgba(91,164,217,0.04);border:1px solid rgba(91,164,217,0.12);padding:0.6rem 1rem;border-radius:6px;font-style:italic;color:#3D6B8E;font-size:0.85rem}
+
+/* Nav */
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding:0.75rem 1rem;background:#fff;border-radius:6px;border:1px solid #D8DDE6}
+.nav a{color:#5BA4D9;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em}
+.nav a:hover{text-decoration:underline}
+
+/* Responsive */
+@media(max-width:640px){
+  .container{padding:1rem}
+  .hero{padding:2rem 1rem}
+  .hero h1{font-size:1.5rem}
+  .info-grid{grid-template-columns:1fr}
+  .phrase-grid{grid-template-columns:1fr}
+  .kw-table{font-size:0.75rem}
+  .kw-table th,.kw-table td{padding:0.4rem 0.3rem}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="nav">
+  <a href="index.html">&larr; Back to Hub</a>
+  <a href="https://uphillathlete.com/" target="_blank">uphillathlete.com &rarr;</a>
+</div>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1">
+    <h1>Research Report</h1>
+    <p class="subtitle">Uphill Athlete - Mountain Training Profile Quiz Funnel</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Products</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Profiles</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Psych Angles</div></div>
+      <div class="stat"><div class="stat-num">3,383</div><div class="stat-label">Ranked Keywords</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: BUSINESS OVERVIEW -->
+<h2>1. Business Overview</h2>
+
+<div class="section-card">
+  <div class="info-grid">
+    <div class="info-item"><div class="info-label">Business Name</div><div class="info-value">Uphill Athlete</div></div>
+    <div class="info-item"><div class="info-label">Website</div><div class="info-value"><a href="https://uphillathlete.com/" target="_blank" style="color:#5BA4D9;text-decoration:none">uphillathlete.com</a></div></div>
+    <div class="info-item"><div class="info-label">Founded</div><div class="info-value">2016</div></div>
+    <div class="info-item"><div class="info-label">Founders</div><div class="info-value">Steve House & Scott Johnston</div></div>
+    <div class="info-item"><div class="info-label">Business Model</div><div class="info-value">Premium coaching + training plans + education + community</div></div>
+    <div class="info-item"><div class="info-label">Tagline</div><div class="info-value">"Train With Us. Elevate Your Life."</div></div>
+  </div>
+
+  <h4>Mission Statement</h4>
+  <blockquote>"Our mission is to openly share proven training knowledge for the outdoor sports we love."</blockquote>
+
+  <h4>Core Philosophy</h4>
+  <p>Evidence-based endurance training applied to mountain sports. Founded on 100+ years of endurance science, adapted from traditional endurance sports (cross-country skiing, distance running) to mountaineering, alpinism, trail running, and ski mountaineering. Three cardinal principles: <strong>Consistency, Gradualness, and Modulation</strong>.</p>
+  <blockquote>"There is no magic to endurance training. There are 100 years of history and a well understood intellectual framework behind the theory and application that applies to the full spectrum of endurance sport."</blockquote>
+</div>
+
+<div class="section-card">
+  <h3>Products & Services</h3>
+
+  <h4>1:1 Coaching (Core Revenue - $349-$399/month)</h4>
+  <ul>
+    <li>Monthly: $399/mo | Bi-annual: $349/mo</li>
+    <li>16-week (4-month) minimum commitment</li>
+    <li>Custom training plan, daily workout delivery, in-depth feedback</li>
+    <li>120+ strength/mobility tutorial videos, Chamonix Mountain Fit, Yoga for Recovery</li>
+    <li>14+ coaches, 7 languages (English, Spanish, Czech, French, German, Italian, Portuguese)</li>
+    <li>100% satisfaction guarantee after 12 weeks</li>
+    <li>Notable coached athletes: Alex Honnold, Cody Townsend, David Gottler</li>
+  </ul>
+
+  <h4>Training Plans ($29-$99 each, buy once own forever)</h4>
+  <ul>
+    <li><strong>Trail Running:</strong> Beginner Marathon ($49), Intro to Ultra ($49), Big Vert Ultra ($59), Multi-Day Stage ($59), 100 Mile ($59), 100 Kilometer ($59), Sky Running ($59)</li>
+    <li><strong>Mountaineering:</strong> Comprehensive All Mountain - 24wk ($99), Intermediate-Advanced - 16wk ($89), Beginner - 8wk ($49), Limited Time - 12wk ($69)</li>
+    <li><strong>Rock Climbing:</strong> Beginner-Intermediate ($39), Advanced ($59), Route Climbing L1-L3 ($69 each), Add-on ($29)</li>
+    <li><strong>Alpinism (Steve House):</strong> Beginner 5wk ($39), Intermediate 8wk ($59), Advanced Eiger 16wk ($89)</li>
+    <li><strong>Ice & Mixed Climbing:</strong> Beginner/Intermediate ($59), Advanced with Steve House ($59)</li>
+    <li><strong>Ski Mountaineering:</strong> Haute Route ($49), Hut-to-Hut ($49), Freeride Steep ($69), Advanced Nordic ($69)</li>
+    <li><strong>Skimo Racing:</strong> Advanced ($89), Beginner/Intermediate ($89), Grand Traverse ($69)</li>
+  </ul>
+
+  <h4>Other Products</h4>
+  <ul>
+    <li><strong>Training Library:</strong> $29/month subscription - access to every training plan + TrainingPeaks Premium</li>
+    <li><strong>Chamonix Mountain Fit:</strong> Progressive video-based strength program ($19/mo)</li>
+    <li><strong>Yoga for Recovery:</strong> $19/mo</li>
+    <li><strong>Training Groups:</strong> Structured community training</li>
+    <li><strong>Books:</strong> "Training for the New Alpinism," "Training for the Uphill Athlete" (with Kilian Jornet), "The New Alpinism Training Log," "Beyond the Mountain" by Steve House</li>
+    <li><strong>Specialty Coaching:</strong> Hypoxic Conditioning, Nutrition Coaching, Paid Coach Consultation Call</li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <h3>Target Market</h3>
+  <p>Mountain athletes of all levels: mountaineering, alpine climbing, trail running & ultras, ski mountaineering & skimo racing, rock climbing, ice & mixed climbing, Nordic skiing.</p>
+  <p><strong>Demographics:</strong> Predominantly male, 25-55, higher income ($75K+), college-educated professionals, located in mountainous regions (Pacific Northwest, Colorado, Alps, Patagonia) or training for expeditions from urban areas.</p>
+</div>
+
+<!-- SECTION 2: BRAND VOICE -->
+<h2>2. Brand Voice</h2>
+
+<div class="section-card">
+  <h4>Tone</h4>
+  <ul>
+    <li><strong>Authoritative yet humble</strong> - Deep expertise delivered without arrogance</li>
+    <li><strong>Scientific but accessible</strong> - Evidence-based language made understandable</li>
+    <li><strong>Inspirational without hype</strong> - "No shortcuts, dogma, or gimmicks"</li>
+    <li><strong>Community-oriented</strong> - "Teaching and fostering an environment for discussion and growth"</li>
+    <li><strong>Patient and process-focused</strong> - "There is no short cut to the kind of fitness you need"</li>
+  </ul>
+  <p><strong>Formality Level:</strong> Medium-high. Professional but not corporate. Feels like a knowledgeable mentor, not a salesperson.</p>
+
+  <h4>Key Phrases</h4>
+  <div class="phrase-grid">
+    <div class="phrase">"Train With Us. Elevate Your Life."</div>
+    <div class="phrase">"Buy it once, own it forever."</div>
+    <div class="phrase">"Personalized. Evidence-Based. Guaranteed."</div>
+    <div class="phrase">"You'll never see the finish if you never reach the start."</div>
+    <div class="phrase">"Voices of Experience."</div>
+    <div class="phrase">"Get to Work"</div>
+    <div class="phrase">"Consistency, Gradualness, and Modulation"</div>
+    <div class="phrase">"All training is exercise but not all exercise is training."</div>
+    <div class="phrase">"Stories from the mountain."</div>
+    <div class="phrase">"Our stretched goals raise the bar and reestablish our perceived limitations."</div>
+  </div>
+
+  <h4>Language Patterns</h4>
+  <ul>
+    <li>Uses "athlete" frequently (everyone is an athlete)</li>
+    <li>References science and evidence ("100 years of history," "evidence-based")</li>
+    <li>Mountain and elevation metaphors ("uphill," "summit," "elevate")</li>
+    <li>Emphasis on the process, not just the goal</li>
+    <li>Holistic framing - physical AND mental/emotional</li>
+    <li>Direct, declarative sentences. No fluff.</li>
+  </ul>
+
+  <h4>Avoid</h4>
+  <ul class="avoid-list">
+    <li>"crush it"</li>
+    <li>"beast mode"</li>
+    <li>"no pain no gain"</li>
+    <li>"get fit in 30 days"</li>
+    <li>"transform overnight"</li>
+    <li>"shredded"</li>
+    <li>"gains"</li>
+    <li>"burn fat"</li>
+    <li>bro-fitness tone</li>
+    <li>pressure tactics</li>
+    <li>CrossFit comparisons</li>
+  </ul>
+</div>
+
+<!-- SECTION 3: CUSTOMER SEGMENTS (TEMPERATURE) -->
+<h2>3. Customer Segments (Temperature)</h2>
+
+<div class="section-card">
+  <span class="temp-badge temp-hot">Hot - Ready to Buy</span>
+  <p><strong>Profile:</strong> Has a specific expedition or race booked within 6-12 months and knows they need structured training. May have already read the books.</p>
+
+  <h4>Pain Points</h4>
+  <ul>
+    <li>"I have an Everest/Denali/Aconcagua expedition booked and I'm not fit enough yet"</li>
+    <li>"I've been doing my own training but I'm not confident it's the right approach"</li>
+    <li>"I had to turn around on a previous attempt due to fitness"</li>
+    <li>"I'm spending $20K-$80K on an expedition -- wasting that due to poor preparation is unacceptable"</li>
+    <li>"I'm recovering from an injury and need expert guidance"</li>
+  </ul>
+
+  <h4>Desires</h4>
+  <ul>
+    <li>Certainty that they'll arrive at base camp in peak condition</li>
+    <li>A coach who understands high-altitude mountaineering demands</li>
+    <li>Scientifically proven methods, not guesswork</li>
+    <li>Accountability and daily feedback</li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <span class="temp-badge temp-warm">Warm - Considering Options</span>
+  <p><strong>Profile:</strong> Serious recreational mountain athlete who trains regularly but feels stuck at a plateau, or wants to level up from self-coached to professionally guided training.</p>
+
+  <h4>Pain Points</h4>
+  <ul>
+    <li>"I'm training hard but not seeing improvement -- maybe I'm doing it wrong"</li>
+    <li>"I want to attempt bigger objectives but don't know how to structure training"</li>
+    <li>"Balancing training with a demanding career and family feels impossible"</li>
+    <li>"$350-$400/month is significant and I'm not sure it's worth it vs. DIY"</li>
+    <li>"I've read the books but translating theory into a personalized plan is hard"</li>
+  </ul>
+
+  <h4>Nurture Needs</h4>
+  <ul>
+    <li>Social proof from similar athletes (age, experience, objectives)</li>
+    <li>Education on proper training vs. what they're doing</li>
+    <li>Price justification -- ROI of coaching vs. cost of failed expeditions</li>
+    <li>Free content that demonstrates expertise</li>
+  </ul>
+</div>
+
+<div class="section-card">
+  <span class="temp-badge temp-cold">Cold - Problem-Aware</span>
+  <p><strong>Profile:</strong> Active outdoors person (hiker, recreational climber, road runner transitioning to trails) who is aware they could train more effectively but hasn't committed to a structured approach.</p>
+
+  <h4>Pain Points</h4>
+  <ul>
+    <li>"I want to climb bigger mountains but I don't even know where to start"</li>
+    <li>"I get tired on hikes that my friends seem to breeze through"</li>
+    <li>"Generic fitness programs don't seem to help on the mountain"</li>
+    <li>"I'm getting older and recovery takes longer than it used to"</li>
+    <li>"CrossFit/gym workouts don't translate to mountain performance"</li>
+  </ul>
+
+  <h4>Education Needs</h4>
+  <ul>
+    <li>What is aerobic base training and why it matters</li>
+    <li>The difference between general fitness and mountain-specific fitness</li>
+    <li>How training zones work and why most people train too hard</li>
+    <li>Realistic timelines for fitness improvement</li>
+    <li>Overview of what coaching and structured plans can do</li>
+  </ul>
+</div>
+
+<!-- SECTION 4: CUSTOMER PROFILES -->
+<h2>4. Customer Profiles</h2>
+
+<div class="profile-card">
+  <div class="profile-name">The Summit Chaser</div>
+  <div class="profile-id">summit-chaser</div>
+  <p>Goal-driven mountaineer with specific peak objectives (Everest, Denali, Aconcagua, Rainier). Plans 1-2 major expeditions per year. Successful professional (executive, entrepreneur, doctor, lawyer) with high disposable income. Typically 35-55.</p>
+  <h4>Pain Points</h4>
+  <ul>
+    <li>Fear of expedition failure due to insufficient fitness</li>
+    <li>Difficulty translating expedition requirements into daily training</li>
+    <li>Managing altitude acclimatization training from sea level</li>
+    <li>Time management with demanding career</li>
+  </ul>
+  <h4>Recommended Products</h4>
+  <div class="products-list">
+    <span class="product-tag">1:1 Coaching ($349-$399/mo)</span>
+    <span class="product-tag">All Mountain Expeditions ($99)</span>
+    <span class="product-tag">Hypoxic Conditioning</span>
+    <span class="product-tag">Chamonix Mountain Fit</span>
+  </div>
+  <p style="margin-top:0.75rem"><strong>Messaging:</strong> Serious, results-focused. "You're investing $50K+ in this expedition -- make sure your body is ready."</p>
+</div>
+
+<div class="profile-card">
+  <div class="profile-name">The Trail Blazer</div>
+  <div class="profile-id">trail-blazer</div>
+  <p>Trail runner or ultra-runner focused on mountain races (UTMB, Hardrock, Western States). Competitive but primarily racing themselves. Already has a running base but needs mountain-specific training. Age 25-45, active on Strava.</p>
+  <h4>Pain Points</h4>
+  <ul>
+    <li>Transitioning from road running to mountain/ultra running</li>
+    <li>Managing training volume without overtraining</li>
+    <li>Nutrition and fueling for ultra-distance events</li>
+    <li>Building vertical gain capacity while maintaining speed</li>
+  </ul>
+  <h4>Recommended Products</h4>
+  <div class="products-list">
+    <span class="product-tag">Trail Running Plans ($49-$59)</span>
+    <span class="product-tag">Training Library ($29/mo)</span>
+    <span class="product-tag">1:1 Coaching</span>
+    <span class="product-tag">Intro to Ultra Plan</span>
+  </div>
+  <p style="margin-top:0.75rem"><strong>Messaging:</strong> Energetic but grounded. Science behind uphill performance. Appeal to someone who finds flat running boring.</p>
+</div>
+
+<div class="profile-card">
+  <div class="profile-name">The Alpine Apprentice</div>
+  <div class="profile-id">alpine-apprentice</div>
+  <p>Aspiring mountaineer relatively new to the sport. Has hiking experience, wants to progress to technical mountaineering. Inspired by books, films, or friends' summit stories. Age 25-40, budget-conscious. Needs education as much as training.</p>
+  <h4>Pain Points</h4>
+  <ul>
+    <li>Doesn't know what mountain-specific fitness means vs. gym fitness</li>
+    <li>Overwhelmed by the gap between current ability and goals</li>
+    <li>Concerned about safety and physical capability</li>
+    <li>Intimidated by the hardcore mountaineering community</li>
+  </ul>
+  <h4>Recommended Products</h4>
+  <div class="products-list">
+    <span class="product-tag">Beginner Mountain Fitness ($49)</span>
+    <span class="product-tag">Training for the New Alpinism (Book)</span>
+    <span class="product-tag">Chamonix Mountain Fit ($19/mo)</span>
+    <span class="product-tag">Training Library ($29/mo)</span>
+    <span class="product-tag">Alpinism Beginner ($39)</span>
+  </div>
+  <p style="margin-top:0.75rem"><strong>Messaging:</strong> Welcoming, encouraging, educational. "Everyone starts somewhere." Remove intimidation.</p>
+</div>
+
+<div class="profile-card">
+  <div class="profile-name">The Mountain Multisport Athlete</div>
+  <div class="profile-id">mountain-multisport</div>
+  <p>Does multiple mountain sports across seasons: ski touring in winter, climbing in summer, trail running in fall. Experienced enough to know they need periodization. Age 30-50, outdoor lifestyle is central to identity.</p>
+  <h4>Pain Points</h4>
+  <ul>
+    <li>Structuring year-round training for multiple disciplines</li>
+    <li>Avoiding burnout from constant high-intensity participation</li>
+    <li>Building an aerobic base that transfers across all activities</li>
+    <li>Risk of overuse injuries from high volume across movement patterns</li>
+  </ul>
+  <h4>Recommended Products</h4>
+  <div class="products-list">
+    <span class="product-tag">Training Library ($29/mo)</span>
+    <span class="product-tag">1:1 Coaching</span>
+    <span class="product-tag">Multiple Plans</span>
+    <span class="product-tag">Chamonix Mountain Fit + Yoga</span>
+    <span class="product-tag">Training Groups</span>
+  </div>
+  <p style="margin-top:0.75rem"><strong>Messaging:</strong> "Mountain person" identity. Lifestyle integration. Strong aerobic base underlies ALL mountain sports.</p>
+</div>
+
+<div class="profile-card">
+  <div class="profile-name">The Comeback Climber</div>
+  <div class="profile-id">comeback-climber</div>
+  <p>Previously active mountain athlete returning after injury, illness, life transition, or extended break. May be dealing with age-related concerns (40-60+). Motivated but cautious. Values holistic approach.</p>
+  <h4>Pain Points</h4>
+  <ul>
+    <li>Fear of re-injury or pushing too hard too soon</li>
+    <li>Frustration at gap between current fitness and remembered capability</li>
+    <li>Age-related changes in recovery and adaptation</li>
+    <li>Mental barriers from injury or time away</li>
+    <li>Lost connection with mountain athlete community</li>
+  </ul>
+  <h4>Recommended Products</h4>
+  <div class="products-list">
+    <span class="product-tag">1:1 Coaching (highest value)</span>
+    <span class="product-tag">Beginner Mountain Fitness ($49)</span>
+    <span class="product-tag">Chamonix Mountain Fit ($19/mo)</span>
+    <span class="product-tag">Yoga for Recovery ($19/mo)</span>
+    <span class="product-tag">Coach Consultation Call</span>
+  </div>
+  <p style="margin-top:0.75rem"><strong>Messaging:</strong> Compassionate, patient, holistic. Reference Steve House's own comeback. "We meet you where you are."</p>
+</div>
+
+<!-- SECTION 5: PSYCHOLOGICAL ANGLES -->
+<h2>5. Psychological Angles</h2>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 1</div>
+  <div class="angle-title">The Expedition Insurance Frame</div>
+  <div class="angle-hook">"You're spending $50,000+ on an expedition. Are you investing $0 in making sure your body can finish it?"</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Loss aversion + sunk cost. Coaching fee is negligible vs. expedition costs.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">Summit Chasers</span>
+    <span class="angle-tag">Hot leads</span>
+  </div>
+</div>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 2</div>
+  <div class="angle-title">The Training Gap Revelation</div>
+  <div class="angle-hook">"Most mountain athletes train too hard on easy days and too easy on hard days. Find out if you're making this mistake."</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Curiosity + self-assessment. Dunning-Kruger effect -- most self-trained athletes don't know what they don't know.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">Trail Blazers</span>
+    <span class="angle-tag">Mountain Multisport</span>
+    <span class="angle-tag">Warm leads</span>
+  </div>
+</div>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 3</div>
+  <div class="angle-title">The Identity Elevation</div>
+  <div class="angle-hook">"What kind of mountain athlete are you? Discover your training profile and unlock your potential."</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Identity-based persuasion. People are drawn to discover their "type." Products mapped to that identity become irresistible.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">All segments</span>
+    <span class="angle-tag">Especially Cold leads</span>
+  </div>
+</div>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 4</div>
+  <div class="angle-title">The Time-Crunched Professional Frame</div>
+  <div class="angle-hook">"You don't need more hours. You need the right hours. How 5 hours/week of smart training can prepare you for any mountain."</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Addresses #1 objection (time) while reframing the solution. Permission to believe limited time can work.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">Summit Chasers</span>
+    <span class="angle-tag">Comeback Climbers</span>
+    <span class="angle-tag">Warm/Hot</span>
+  </div>
+</div>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 5</div>
+  <div class="angle-title">The Science vs. Guesswork Divide</div>
+  <div class="angle-hook">"Elite mountaineers don't train by feel. They use the same evidence-based methods Olympians have used for 100 years."</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Authority + exclusivity. Positions UA's approach as the "real" way, making DIY feel risky.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">Alpine Apprentices</span>
+    <span class="angle-tag">Trail Blazers</span>
+    <span class="angle-tag">Warm leads</span>
+  </div>
+</div>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 6</div>
+  <div class="angle-title">The Community Belonging</div>
+  <div class="angle-hook">"Join 10,000+ mountain athletes who train with purpose. From weekend hikers to Everest summiteers, they all started with one step."</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Social proof + belonging. Mountain sports can feel lonely. Community is a powerful motivator.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">Comeback Climbers</span>
+    <span class="angle-tag">Alpine Apprentices</span>
+    <span class="angle-tag">Cold/Warm</span>
+  </div>
+</div>
+
+<div class="angle-card">
+  <div class="angle-num">Angle 7</div>
+  <div class="angle-title">The Holistic Athlete Frame</div>
+  <div class="angle-hook">"Fitness isn't just about your legs. The mountain tests your mind, your nutrition, your recovery, and your resilience."</div>
+  <p style="font-size:0.85rem;color:#4A4A68"><strong>Psychology:</strong> Addresses the whole person. Differentiates from generic fitness programs. Appeals to sophisticated buyers.</p>
+  <div class="angle-meta">
+    <span class="angle-tag">Mountain Multisport</span>
+    <span class="angle-tag">Comeback Climbers</span>
+    <span class="angle-tag">Warm leads</span>
+  </div>
+</div>
+
+<!-- SECTION 6: SEO KEYWORDS -->
+<h2>6. SEO Keywords</h2>
+
+<div class="section-card">
+  <h3>Domain SEO Overview</h3>
+  <div class="seo-grid">
+    <div class="seo-stat"><div class="seo-num">3,383</div><div class="seo-label">Total Ranked Keywords</div></div>
+    <div class="seo-stat"><div class="seo-num">$12,526</div><div class="seo-label">Monthly Traffic Value</div></div>
+    <div class="seo-stat"><div class="seo-num">416</div><div class="seo-label">Top 10 Positions</div></div>
+    <div class="seo-stat"><div class="seo-num">951</div><div class="seo-label">Top 20 Positions</div></div>
+  </div>
+
+  <h4>Primary Keywords</h4>
+  <table class="kw-table">
+    <thead><tr><th>Keyword</th><th>Volume</th><th>CPC</th><th>Difficulty</th><th>Intent</th></tr></thead>
+    <tbody>
+      <tr><td>mountaineering training</td><td class="vol">1,600</td><td>$2.42</td><td>31</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>trail running training plan</td><td class="vol">260</td><td>$3.22</td><td>Low</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>trail running training plan 50k</td><td class="vol">480</td><td>$3.56</td><td>Low</td><td><span class="intent intent-transactional">Transactional</span></td></tr>
+      <tr><td>rock climbing</td><td class="vol">135,000</td><td>$1.12</td><td>50</td><td><span class="intent intent-navigational">Navigational</span></td></tr>
+      <tr><td>hiking</td><td class="vol">368,000</td><td>$2.82</td><td>64</td><td><span class="intent intent-informational">Informational</span></td></tr>
+      <tr><td>climbing gym</td><td class="vol">110,000</td><td>$1.22</td><td>41</td><td><span class="intent intent-navigational">Navigational</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Secondary Keywords</h4>
+  <table class="kw-table">
+    <thead><tr><th>Keyword</th><th>Volume</th><th>CPC</th><th>Difficulty</th><th>Intent</th></tr></thead>
+    <tbody>
+      <tr><td>mountaineering training plan</td><td class="vol">110</td><td>$0.32</td><td>14</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>training for mountaineering</td><td class="vol">110</td><td>$2.00</td><td>4</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>high altitude mountaineering training</td><td class="vol">140</td><td>$1.58</td><td>Low</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>mountaineering physical training</td><td class="vol">140</td><td>$1.05</td><td>5</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>training program for mountaineering</td><td class="vol">110</td><td>$0.32</td><td>13</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>mountaineering training program</td><td class="vol">90</td><td>$14.75</td><td>14</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>trail running training plan 25k</td><td class="vol">210</td><td>$6.12</td><td>Low</td><td><span class="intent intent-transactional">Transactional</span></td></tr>
+      <tr><td>training plan for trail running</td><td class="vol">260</td><td>$3.22</td><td>Low</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Long-Tail Keywords</h4>
+  <table class="kw-table">
+    <thead><tr><th>Keyword</th><th>Volume</th><th>CPC</th><th>Intent</th></tr></thead>
+    <tbody>
+      <tr><td>mountaineering training plan pdf</td><td class="vol">30</td><td>-</td><td><span class="intent intent-transactional">Transactional</span></td></tr>
+      <tr><td>mountaineering fitness training</td><td class="vol">40</td><td>$0.30</td><td><span class="intent intent-commercial">Commercial</span></td></tr>
+      <tr><td>ultra trail running training plan</td><td class="vol">30</td><td>$4.88</td><td><span class="intent intent-transactional">Transactional</span></td></tr>
+      <tr><td>trail running training plan for beginners</td><td class="vol">50</td><td>$0.41</td><td><span class="intent intent-transactional">Transactional</span></td></tr>
+      <tr><td>trail running half marathon training plan</td><td class="vol">50</td><td>$0.70</td><td><span class="intent intent-transactional">Transactional</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Brand Keywords</h4>
+  <div class="products-list">
+    <span class="product-tag">"uphill athlete"</span>
+    <span class="product-tag">"training for the new alpinism"</span>
+    <span class="product-tag">"training for the uphill athlete"</span>
+    <span class="product-tag">"steve house training"</span>
+    <span class="product-tag">"scott johnston training"</span>
+  </div>
+</div>
+
+<!-- SECTION 7: COMPETITIVE LANDSCAPE -->
+<h2>7. Competitive Landscape</h2>
+
+<div class="section-card">
+  <h3>Direct Competitors</h3>
+
+  <div class="competitor-card">
+    <div class="competitor-name">Evoke Endurance</div>
+    <a class="competitor-url" href="https://evokeendurance.com" target="_blank">evokeendurance.com</a>
+    <p class="competitor-detail">Founded by Scott Johnston (UA co-founder) and 17 original UA coaches who left. Same training philosophy, same methodological foundation. Strong credibility via Johnston's record (coached two UTMB winners).</p>
+    <div class="competitor-opp"><strong>Opportunity:</strong> UA retains Steve House brand equity and established name. Emphasize what makes the remaining coaching team unique.</div>
+  </div>
+
+  <div class="competitor-card">
+    <div class="competitor-name">TrainingPeaks</div>
+    <a class="competitor-url" href="https://trainingpeaks.com" target="_blank">trainingpeaks.com</a>
+    <p class="competitor-detail">1,181 keyword intersections with uphillathlete.com. Platform partner (UA uses TrainingPeaks for plan delivery). More generalist endurance platform.</p>
+    <div class="competitor-opp"><strong>Opportunity:</strong> UA is the specialist; TrainingPeaks is the infrastructure. Lean into mountain-sport specificity.</div>
+  </div>
+
+  <div class="competitor-card">
+    <div class="competitor-name">Marathon Handbook</div>
+    <a class="competitor-url" href="https://marathonhandbook.com" target="_blank">marathonhandbook.com</a>
+    <p class="competitor-detail">836 keyword intersections. Primarily running-focused content. Free content model with affiliate revenue. Overlaps on trail running and ultra training.</p>
+    <div class="competitor-opp"><strong>Opportunity:</strong> Marathon Handbook is informational; UA offers actionable coaching backed by world-class credentials.</div>
+  </div>
+</div>
+
+<div class="section-card">
+  <h3>Adjacent Competitors</h3>
+  <ul>
+    <li><strong>Mountain Tactical Institute</strong> (mtntactical.com) - Military/tactical mountain fitness, strength-oriented</li>
+    <li><strong>Nerd Fitness</strong> (nerdfitness.com) - Gamified coaching for mass market, good quiz funnel model</li>
+    <li><strong>TrainClimbSummit</strong> (trainclimbsummit.com) - Local climbing gym + coaching, regional focus</li>
+  </ul>
+
+  <h3>Content/Media Competitors</h3>
+  <ul>
+    <li><strong>Outside Online</strong> - 1,490 keyword intersections, major outdoor media</li>
+    <li><strong>Runner's World</strong> - 1,144 keyword intersections, mainstream running</li>
+    <li><strong>Healthline</strong> - 1,244 keyword intersections, general health/fitness</li>
+  </ul>
+
+  <h3>Competitive Positioning Opportunities</h3>
+  <ol>
+    <li><strong>Credentialing Gap:</strong> No competitor has Steve House + Kilian Jornet + 20-year track record credential stack. This is UA's deepest moat.</li>
+    <li><strong>Multi-Sport Mountain Platform:</strong> Most competitors focus on one discipline. UA spans 7 mountain disciplines.</li>
+    <li><strong>Education-to-Coaching Pipeline:</strong> Books, articles, podcast, and athlete stories create a trust-building funnel competitors lack. A quiz amplifies this pipeline.</li>
+    <li><strong>Satisfaction Guarantee:</strong> "100% satisfaction or full money back after 12 weeks" -- most coaching is non-refundable.</li>
+    <li><strong>Global Coaching in 7 Languages:</strong> International reach that most mountain coaching services cannot match.</li>
+  </ol>
+</div>
+
+<!-- SECTION 8: VISUAL IDENTITY -->
+<h2>8. Visual Identity</h2>
+
+<div class="section-card">
+  <div class="info-grid">
+    <div class="info-item"><div class="info-label">Primary Color</div><div class="info-value"><span style="display:inline-block;width:12px;height:12px;background:#5BA4D9;border-radius:2px;margin-right:6px;vertical-align:middle"></span>#5BA4D9 (Blue)</div></div>
+    <div class="info-item"><div class="info-label">Secondary Color</div><div class="info-value"><span style="display:inline-block;width:12px;height:12px;background:#1A1A2E;border-radius:2px;margin-right:6px;vertical-align:middle"></span>#1A1A2E (Dark Navy)</div></div>
+    <div class="info-item"><div class="info-label">Headings Font</div><div class="info-value">Montserrat (Bold, Uppercase)</div></div>
+    <div class="info-item"><div class="info-label">Body Font</div><div class="info-value">Inter (Clean sans-serif)</div></div>
+    <div class="info-item"><div class="info-label">Design Mode</div><div class="info-value">Sharp</div></div>
+    <div class="info-item"><div class="info-label">Design Personality</div><div class="info-value">Minimal + editorial, high contrast</div></div>
+  </div>
+
+  <h4>Visual Style</h4>
+  <ul>
+    <li><strong>Photography-forward:</strong> Large, full-bleed mountain and athlete photography</li>
+    <li><strong>High contrast:</strong> White text over dark mountain scenes, blue accents on white</li>
+    <li><strong>Minimal decoration:</strong> No gradients, no complex borders. Clean lines and generous whitespace.</li>
+    <li><strong>Human scale:</strong> Athletes shown small against massive landscapes, emphasizing the challenge</li>
+    <li><strong>Logo:</strong> Geometric mountain/triangle mark with "UPHILL ATHLETE" in uppercase. Angular, modern.</li>
+  </ul>
+</div>
+
+<div style="text-align:center;padding:3rem 0;color:#7A7A96;font-size:0.8rem;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:0.1em">
+  Uphill Athlete - Research Report - Generated for Quiz Funnel Build
+</div>
+
+</div>
+</body>
+</html>

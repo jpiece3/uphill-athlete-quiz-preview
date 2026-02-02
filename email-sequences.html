@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Email Sequences Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.2}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.02em;margin-bottom:0.5rem}
+h2{font-size:1.5rem;font-weight:800;margin-bottom:1rem;padding-top:2rem}
+h3{font-size:1.125rem;font-weight:700;margin-bottom:0.75rem}
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2rem;position:relative}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero h1{color:#fff}
+.hero p{color:#B8C0CE;margin-top:0.5rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.5rem 0}
+.stat{background:#2A2A42;padding:1rem;border-radius:6px;text-align:center}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:#5BA4D9}
+.stat-label{font-size:0.75rem;color:#7A7A96;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem}
+.sequence-header{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1rem;padding:1rem;background:#1A1A2E;color:#fff;border-radius:6px}
+.sequence-badge{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.4em 0.8em;border:2px solid #5BA4D9;border-radius:4px;color:#5BA4D9;white-space:nowrap}
+.sequence-title{font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.sequence-meta{font-size:0.8rem;color:#7A7A96;margin-left:auto}
+.email-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;margin-bottom:1.5rem;overflow:hidden;position:relative}
+.email-card::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.email-header{padding:1.25rem 1.5rem;border-bottom:1px solid #E8ECF2;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.email-id{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;background:rgba(91,164,217,0.08);padding:0.3em 0.6em;border-radius:4px}
+.email-day{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#7A7A96}
+.email-subject{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;text-transform:none}
+.tag{display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;padding:0.2em 0.5em;border-radius:3px;margin-left:auto}
+.tag-welcome{background:rgba(91,164,217,0.1);color:#3D8AC4}
+.tag-cold{background:rgba(91,164,217,0.1);color:#5BA4D9}
+.tag-warm{background:rgba(245,158,11,0.1);color:#D97706}
+.tag-hot{background:rgba(34,197,94,0.1);color:#16A34A}
+.tag-reengagement{background:rgba(122,122,150,0.1);color:#7A7A96}
+.email-body{padding:1.5rem;font-size:0.9rem;line-height:1.8;color:#4A4A68}
+.email-body p{margin-bottom:1rem}
+.email-body strong{color:#1A1A2E}
+.placeholder{display:inline-block;background:rgba(91,164,217,0.08);border:1px dashed #5BA4D9;border-radius:4px;padding:0.15em 0.5em;font-size:0.8rem;font-family:'JetBrains Mono',monospace;color:#3D8AC4}
+.email-cta{padding:1rem 1.5rem;background:#F5F7FA;border-top:1px solid #E8ECF2;text-align:center}
+.btn{display:inline-block;padding:0.75rem 1.5rem;background:#5BA4D9;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border-radius:4px;text-decoration:none}
+.filter-bar{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.filter-btn{padding:0.5rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border:2px solid #D8DDE6;border-radius:4px;background:#fff;color:#4A4A68;cursor:pointer;transition:all 0.15s}
+.filter-btn:hover,.filter-btn.active{border-color:#5BA4D9;color:#5BA4D9;background:rgba(91,164,217,0.04)}
+.hidden{display:none}
+@media(max-width:640px){.container{padding:1rem}.hero{padding:2rem 1rem}.email-header{flex-direction:column;align-items:flex-start;gap:0.5rem}.tag{margin-left:0}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<h1>Email Sequences</h1>
+<p>Uphill Athlete - Mountain Training Profile Quiz Funnel</p>
+<div class="stats">
+<div class="stat"><div class="stat-num">26</div><div class="stat-label">Total Emails</div></div>
+<div class="stat"><div class="stat-num">5</div><div class="stat-label">Sequences</div></div>
+<div class="stat"><div class="stat-num">10+</div><div class="stat-label">Profile Blocks</div></div>
+<div class="stat"><div class="stat-num">12+</div><div class="stat-label">Answer Callbacks</div></div>
+</div>
+</div>
+
+<div class="filter-bar">
+<button class="filter-btn active" data-filter="all">All (26)</button>
+<button class="filter-btn" data-filter="welcome">Welcome (3)</button>
+<button class="filter-btn" data-filter="cold">Cold Nurture (7)</button>
+<button class="filter-btn" data-filter="warm">Warm Activation (6)</button>
+<button class="filter-btn" data-filter="hot">Hot Path (4)</button>
+<button class="filter-btn" data-filter="reengagement">Re-Engagement (3)</button>
+</div>
+
+<!-- WELCOME SEQUENCE -->
+<div class="sequence-header" data-seq="welcome">
+<span class="sequence-badge">Sequence 1</span>
+<span class="sequence-title">Welcome</span>
+<span class="sequence-meta">3 emails | All leads | Days 0, 2, 5</span>
+</div>
+
+<div class="email-card" data-seq="welcome">
+<div class="email-header">
+<span class="email-id">W-1</span>
+<span class="email-day">Day 0</span>
+<span class="email-subject">Your Mountain Training Profile is here</span>
+<span class="tag tag-welcome">Welcome</span>
+</div>
+<div class="email-body">
+<p>Hi <span class="placeholder">{{first_name}}</span>,</p>
+<p>Thank you for taking the Mountain Training Profile assessment. Here are your results.</p>
+<p><strong>Your Profile: <span class="placeholder">{{profile_name}}</span></strong><br><strong>Training Stage: <span class="placeholder">{{stage_name}}</span></strong></p>
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>What does this mean for your training? Your position on the milestone map tells us something important: you have a clear path forward. The evidence-based methodology behind this assessment is the same framework that has guided athletes to the summits of Denali, Everest, and across UTMB finish lines.</p>
+<p>Here's what to focus on this week:<br><span class="placeholder">{{answer_callback_1}}</span></p>
+<p>We'll be in touch over the coming days with targeted training insights matched to your profile.</p>
+<p>Train with purpose,<br>Uphill Athlete</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">View Your Full Profile Results</a></div>
+</div>
+
+<div class="email-card" data-seq="welcome">
+<div class="email-header">
+<span class="email-id">W-2</span>
+<span class="email-day">Day 2</span>
+<span class="email-subject">The one training rule every mountain athlete should follow</span>
+<span class="tag tag-welcome">Welcome</span>
+</div>
+<div class="email-body">
+<p>Hi <span class="placeholder">{{first_name}}</span>,</p>
+<p>There is one principle that separates effective mountain training from wasted effort. It has been proven over 100 years of endurance science.</p>
+<p><strong>The 80/20 Rule:</strong> 80% of your training volume should be at or below your aerobic threshold. The other 20% is where you push.</p>
+<p>Most mountain athletes get this backward. They train too hard on easy days and too easy on hard days.</p>
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>This is the foundation of everything we do at Uphill Athlete. It's not glamorous. But it is what works.</p>
+<p>Train with purpose,<br>Uphill Athlete</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Learn More About Aerobic Base Training</a></div>
+</div>
+
+<div class="email-card" data-seq="welcome">
+<div class="email-header">
+<span class="email-id">W-3</span>
+<span class="email-day">Day 5</span>
+<span class="email-subject">He fell 80 feet off a mountain. Then he came back.</span>
+<span class="tag tag-welcome">Welcome</span>
+</div>
+<div class="email-body">
+<p>Hi <span class="placeholder">{{first_name}}</span>,</p>
+<p>In 2010, Uphill Athlete co-founder Steve House fell 80 feet on Mount Temple, shattering his pelvis, femur, and ankle. He not only walked again. He climbed again.</p>
+<p>The principles that guided his comeback: <strong>consistency, gradualness, and modulation.</strong></p>
+<p><span class="placeholder">{{answer_callback_2}}</span></p>
+<p>Whether you're training for your first peak or your twentieth, these three principles apply at every stage of the journey.</p>
+<p>Train with purpose,<br>Uphill Athlete</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Read More Athlete Stories</a></div>
+</div>
+
+<!-- COLD NURTURE SEQUENCE -->
+<div class="sequence-header" data-seq="cold">
+<span class="sequence-badge">Sequence 2</span>
+<span class="sequence-title">Cold Nurture</span>
+<span class="sequence-meta">7 emails | Score 0-49 | Days 1-23</span>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-1</span><span class="email-day">Day 1</span>
+<span class="email-subject">Mountain fitness is not gym fitness. Here's why.</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span> + <span class="placeholder">{{answer_callback_1}}</span></p>
+<p>Covers aerobic endurance, muscular endurance under load, and recovery capacity. Establishes that mountain fitness is learnable and different from gym fitness.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Read Our Guide to Mountain-Specific Fitness</a></div>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-2</span><span class="email-day">Day 3</span>
+<span class="email-subject">This is the engine that powers everything on the mountain</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Deep dive on aerobic base: what it is, why it matters, how to build it. Zone 1-2 training at conversational pace. Duration over intensity.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Try Our Heart Rate Zone Calculator</a></div>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-3</span><span class="email-day">Day 5</span>
+<span class="email-subject">Why your gym workouts aren't translating to the mountain</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{answer_callback_2}}</span></p>
+<p>Gym vs mountain training comparison. Mountain-specific strength: step-ups, single-leg work, core anti-rotation, eccentric leg work.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Explore Chamonix Mountain Fit</a></div>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-4</span><span class="email-day">Day 8</span>
+<span class="email-subject">She had never climbed a peak. Now she's summited three.</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Athlete success story. Hiker to mountaineer transition in 6 months. Beginner Mountain Fitness plan. Everyone starts somewhere.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">See the Beginner Mountain Fitness Plan</a></div>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-5</span><span class="email-day">Day 12</span>
+<span class="email-subject">The 5 training zones, explained simply</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{answer_callback_1}}</span></p>
+<p>Zone 1-5 breakdown for mountain athletes. The gray zone problem. Simple rule: keep easy days truly easy, hard days truly hard.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Calculate Your Heart Rate Zones</a></div>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-6</span><span class="email-day">Day 17</span>
+<span class="email-subject">You don't have to train alone</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Community introduction. Training Groups, podcast, athlete stories. Accountability and belonging for mountain athletes.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Explore Training Groups</a></div>
+</div>
+
+<div class="email-card" data-seq="cold">
+<div class="email-header">
+<span class="email-id">CN-7</span><span class="email-day">Day 23</span>
+<span class="email-subject">Ready to take the next step?</span>
+<span class="tag tag-cold">Cold</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span> + <span class="placeholder">{{answer_callback_2}}</span></p>
+<p>Three paths forward: Self-Guided (plan), Community-Supported (Training Groups), Fully Coached (1:1). Matched to profile.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Find the Right Starting Point</a></div>
+</div>
+
+<!-- WARM ACTIVATION SEQUENCE -->
+<div class="sequence-header" data-seq="warm">
+<span class="sequence-badge">Sequence 3</span>
+<span class="sequence-title">Warm Activation</span>
+<span class="sequence-meta">6 emails | Score 50-79 | Days 1-15</span>
+</div>
+
+<div class="email-card" data-seq="warm">
+<div class="email-header">
+<span class="email-id">WA-1</span><span class="email-day">Day 1</span>
+<span class="email-subject">The gap between effort and results, explained</span>
+<span class="tag tag-warm">Warm</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span> + <span class="placeholder">{{answer_callback_1}}</span></p>
+<p>Validates effort while identifying the structure gap. Three pillars: intensity distribution, progressive overload, periodization.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Learn About the Methodology</a></div>
+</div>
+
+<div class="email-card" data-seq="warm">
+<div class="email-header">
+<span class="email-id">WA-2</span><span class="email-day">Day 3</span>
+<span class="email-subject">Are you training too hard on your easy days?</span>
+<span class="tag tag-warm">Warm</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Intensity distribution deep dive. 80/20 rule with self-test. The gray zone problem for self-coached athletes.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Read: Why Polarized Training Works</a></div>
+</div>
+
+<div class="email-card" data-seq="warm">
+<div class="email-header">
+<span class="email-id">WA-3</span><span class="email-day">Day 5</span>
+<span class="email-subject">He was stuck at the same fitness level for 2 years.</span>
+<span class="tag tag-warm">Warm</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{answer_callback_2}}</span></p>
+<p>Athlete case study: Mark's plateau broken by training structure change. Heart rate drift test. 12% aerobic threshold improvement in 16 weeks.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Explore Training Plans</a></div>
+</div>
+
+<div class="email-card" data-seq="warm">
+<div class="email-header">
+<span class="email-id">WA-4</span><span class="email-day">Day 8</span>
+<span class="email-subject">Why training the same way year-round is holding you back</span>
+<span class="tag tag-warm">Warm</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Periodization explained: Base, Build, Peak, Taper. How to structure training around your objective date.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Browse Periodized Plans</a></div>
+</div>
+
+<div class="email-card" data-seq="warm">
+<div class="email-header">
+<span class="email-id">WA-5</span><span class="email-day">Day 11</span>
+<span class="email-subject">What coaching actually looks like</span>
+<span class="tag tag-warm">Warm</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Day-in-the-life of coached athlete. Monday review, Wednesday data, Friday Q&A, Saturday execution. Evidence-based, personalized, guaranteed.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Learn About 1:1 Coaching</a></div>
+</div>
+
+<div class="email-card" data-seq="warm">
+<div class="email-header">
+<span class="email-id">WA-6</span><span class="email-day">Day 15</span>
+<span class="email-subject">The right next step for where you are right now</span>
+<span class="tag tag-warm">Warm</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span> + <span class="placeholder">{{answer_callback_1}}</span></p>
+<p>Three options matched to profile: self-guided plan, Training Groups, 1:1 coaching. Conversion email with soft close.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Find Your Training Path</a></div>
+</div>
+
+<!-- HOT PATH SEQUENCE -->
+<div class="sequence-header" data-seq="hot">
+<span class="sequence-badge">Sequence 4</span>
+<span class="sequence-title">Hot Path</span>
+<span class="sequence-meta">4 emails | Score 80-100 | Days 1-9</span>
+</div>
+
+<div class="email-card" data-seq="hot">
+<div class="email-header">
+<span class="email-id">HP-1</span><span class="email-day">Day 1</span>
+<span class="email-subject">Your Mountain Training Profile confirms what you already know</span>
+<span class="tag tag-hot">Hot</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span> + <span class="placeholder">{{answer_callback_1}}</span></p>
+<p>Validates commitment and readiness. Precision is the differentiator at this level. Every session must be optimally aligned.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Book a Free Coach Consultation</a></div>
+</div>
+
+<div class="email-card" data-seq="hot">
+<div class="email-header">
+<span class="email-id">HP-2</span><span class="email-day">Day 3</span>
+<span class="email-subject">How one coached athlete prepared for Denali</span>
+<span class="tag tag-hot">Hot</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Detailed Denali case study. 24-week periodized program. Aerobic base, mountain-specific conditioning, peak-phase, taper. Summit success.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Explore Coaching for Your Objective</a></div>
+</div>
+
+<div class="email-card" data-seq="hot">
+<div class="email-header">
+<span class="email-id">HP-3</span><span class="email-day">Day 6</span>
+<span class="email-subject">100% satisfaction guarantee. Here's why we offer it.</span>
+<span class="tag tag-hot">Hot</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{answer_callback_2}}</span></p>
+<p>Guarantee details. Full coaching package breakdown: custom plan, daily delivery, in-depth feedback, regular contact, 120+ videos, programs.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Book a Free Coach Consultation</a></div>
+</div>
+
+<div class="email-card" data-seq="hot">
+<div class="email-header">
+<span class="email-id">HP-4</span><span class="email-day">Day 9</span>
+<span class="email-subject">Let's match you with the right coach</span>
+<span class="tag tag-hot">Hot</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>14+ coaches, 7 languages. Specialist matching: expedition, trail running, ski mountaineering, climbing, comeback, nutrition. Free consultation.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Schedule Your Free Consultation</a></div>
+</div>
+
+<!-- RE-ENGAGEMENT SEQUENCE -->
+<div class="sequence-header" data-seq="reengagement">
+<span class="sequence-badge">Sequence 5</span>
+<span class="sequence-title">Re-Engagement</span>
+<span class="sequence-meta">3 emails | All post-sequence | Days +3, +10, +17</span>
+</div>
+
+<div class="email-card" data-seq="reengagement">
+<div class="email-header">
+<span class="email-id">RE-1</span><span class="email-day">Day +3</span>
+<span class="email-subject">How's your training going, {{first_name}}?</span>
+<span class="tag tag-reengagement">Re-Engage</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Check-in. Application of training insights. Reply invitation. Three paths reminder: plans, groups, coaching.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Revisit Your Training Profile</a></div>
+</div>
+
+<div class="email-card" data-seq="reengagement">
+<div class="email-header">
+<span class="email-id">RE-2</span><span class="email-day">Day +10</span>
+<span class="email-subject">New on the blog: training insights for mountain athletes</span>
+<span class="tag tag-reengagement">Re-Engage</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{answer_callback_1}}</span> + <span class="placeholder">{{profile_block}}</span></p>
+<p>New content promotion. Profile-matched article recommendations. Training article library highlight.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Browse the Training Article Library</a></div>
+</div>
+
+<div class="email-card" data-seq="reengagement">
+<div class="email-header">
+<span class="email-id">RE-3</span><span class="email-day">Day +17</span>
+<span class="email-subject">One last thing before we go</span>
+<span class="tag tag-reengagement">Re-Engage</span>
+</div>
+<div class="email-body">
+<p><span class="placeholder">{{profile_block}}</span></p>
+<p>Final email. Preparation over talent message. Open door: reply, browse, listen, retake. Graceful close.</p>
+</div>
+<div class="email-cta"><a href="#" class="btn">Explore Uphill Athlete Resources</a></div>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.email-card,.sequence-header').forEach(el=>{
+      if(f==='all'){el.classList.remove('hidden')}
+      else{el.dataset.seq===f?el.classList.remove('hidden'):el.classList.add('hidden')}
+    });
+  });
+});
+</script>
+</body>
+</html>

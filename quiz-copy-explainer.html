@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Quiz Copy Explainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.25}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.02em}
+h2{font-size:1.25rem;font-weight:800}
+h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+h4{font-size:0.875rem;font-weight:700;letter-spacing:0.02em}
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2rem;position:relative}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero h1{color:#fff;margin-bottom:0.5rem}
+.hero p{color:#B8C0CE}
+details{background:#fff;border:1px solid #D8DDE6;border-radius:8px;margin-bottom:1rem;overflow:hidden;position:relative}
+details::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9;pointer-events:none;z-index:1}
+summary{padding:1.25rem 1.5rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.02em;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;transition:background 0.15s}
+summary:hover{background:#F5F7FA}
+summary::after{content:'+';font-size:1.5rem;color:#5BA4D9;font-weight:300;transition:transform 0.2s}
+details[open] summary::after{content:'-'}
+summary::-webkit-details-marker{display:none}
+.section-num{display:inline-block;width:28px;height:28px;background:#5BA4D9;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;text-align:center;line-height:28px;border-radius:4px;margin-right:0.75rem;flex-shrink:0}
+.section-content{padding:0 1.5rem 1.5rem;border-top:1px solid #E8ECF2}
+.section-content p{margin:1rem 0;color:#4A4A68}
+.section-content ul{margin:0.75rem 0 0.75rem 1.5rem;color:#4A4A68}
+.section-content li{margin-bottom:0.5rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.9rem}
+th{background:#1A1A2E;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.75rem 1rem;text-align:left}
+td{padding:0.75rem 1rem;border-bottom:1px solid #E8ECF2;color:#4A4A68;vertical-align:top}
+tr:nth-child(even) td{background:#F5F7FA}
+.highlight{background:rgba(91,164,217,0.06);border-left:3px solid #5BA4D9;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1rem 0}
+.highlight strong{color:#1A1A2E}
+.tag{display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;padding:0.2em 0.5em;border-radius:3px;margin-right:0.25rem}
+.tag-blue{background:rgba(91,164,217,0.1);color:#3D8AC4}
+.tag-green{background:rgba(34,197,94,0.1);color:#16A34A}
+.tag-amber{background:rgba(245,158,11,0.1);color:#D97706}
+.tag-red{background:rgba(239,68,68,0.1);color:#DC2626}
+@media(max-width:640px){.container{padding:1rem}.hero{padding:2rem 1rem}summary{padding:1rem;font-size:0.875rem}.section-content{padding:0 1rem 1rem}table{font-size:0.8rem}th,td{padding:0.5rem 0.75rem}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+<h1>Quiz Copy Explainer</h1>
+<p>Uphill Athlete - Mountain Training Profile</p>
+<p style="margin-top:1rem;font-size:0.9rem">A comprehensive breakdown of every copy decision in the quiz funnel: question rationale, answer psychology, scoring logic, email strategy, persuasion techniques, and customer segment design.</p>
+</div>
+
+<!-- SECTION 1 -->
+<details open>
+<summary><span class="section-num">1</span> Question Rationale</summary>
+<div class="section-content">
+<p>Each of the 7 questions serves a specific strategic purpose in the funnel. No question is filler. Every question either segments the lead, measures readiness, or generates personalization data.</p>
+
+<table>
+<tr><th>Question</th><th>Strategic Purpose</th><th>Why This Type</th></tr>
+<tr><td><strong>Q1: Mountain Discipline</strong><br><span class="tag tag-blue">card_selection</span></td><td>Identifies primary sport identity. Routes to the correct product recommendations and email content. This is the most important segmentation question.</td><td>Card selection creates a visually engaging first interaction. The icons and descriptions reduce cognitive load and make athletes feel "seen" immediately. This question type has the highest completion rate as a first question.</td></tr>
+<tr><td><strong>Q2: Weekly Training Hours</strong><br><span class="tag tag-blue">scale_slider</span></td><td>Strongest readiness signal. Training volume correlates directly with coaching willingness and product tier. Weighted highest (18 points) because it is the most reliable predictor of buying behavior.</td><td>Scale slider feels less judgmental than multiple choice for a sensitive topic (training volume). Athletes can be precise without committing to a labeled category like "beginner" or "advanced."</td></tr>
+<tr><td><strong>Q3: Training Toolkit</strong><br><span class="tag tag-blue">tag_cloud</span></td><td>Reveals training sophistication. Athletes selecting structured methods (periodization, heart rate zones, altitude training) are more purchase-ready. Multi-select provides rich email personalization data.</td><td>Tag cloud allows multiple selections, generating a richer profile than single-answer questions. It also feels participatory and interactive, maintaining engagement mid-quiz.</td></tr>
+<tr><td><strong>Q4: Mountain Confidence</strong><br><span class="tag tag-blue">emoji_scale</span></td><td>Emotional self-assessment that captures what objective questions miss. Confidence level correlates with profile type (low confidence often indicates Alpine Apprentice or Comeback Climber).</td><td>Emoji scale reduces the clinical feel of a "rate yourself" question. The visual emojis create a moment of self-reflection that feels natural rather than evaluative.</td></tr>
+<tr><td><strong>Q5: Biggest Challenge</strong><br><span class="tag tag-blue">multiple_choice</span></td><td>Directly maps to pain points and email content. Each answer triggers different advice: plateau athletes get intensity education; time-crunched get efficiency frameworks; comeback athletes get progressive return protocols.</td><td>Multiple choice for a pain point question ensures clean, mutually exclusive segmentation. "Pick the one that resonates most" forces prioritization, which improves data quality.</td></tr>
+<tr><td><strong>Q6: Committed Objective</strong><br><span class="tag tag-blue">yes_no_toggle</span></td><td>The strongest buying signal in the quiz. Having a specific objective with a date is the #1 predictor of coaching readiness. Worth 15 points (yes) vs. 5 points (no).</td><td>Binary toggle removes nuance intentionally. This question needs a clean yes/no signal. The toggle format makes the decision feel low-stakes while generating high-value data.</td></tr>
+<tr><td><strong>Q7: Expert Guidance</strong><br><span class="tag tag-blue">star_rating</span></td><td>Directly measures coaching receptiveness. Combined with Q6, this determines whether the primary CTA should be coaching (stars 4-5) or a training plan (stars 1-3).</td><td>Star rating creates a familiar, low-friction interaction. The label beneath each star provides context that prevents misinterpretation. Ending with this question primes the transition to email capture.</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Question sequence logic:</strong> The quiz moves from identity (who are you) to behavior (what do you do) to emotion (how do you feel) to pain (what's blocking you) to commitment (how serious are you). This mirrors the natural thought process of self-assessment, making the quiz feel like a conversation rather than an interrogation.
+</div>
+</div>
+</details>
+
+<!-- SECTION 2 -->
+<details>
+<summary><span class="section-num">2</span> Answer Psychology</summary>
+<div class="section-content">
+<p>Every answer option is crafted to make the quiz-taker feel understood. The copy uses specific language from the mountain athlete community, not generic fitness terminology.</p>
+
+<h3>Q1 Answer Design</h3>
+<table>
+<tr><th>Answer</th><th>Psychological Mechanism</th><th>Voice Alignment</th></tr>
+<tr><td><strong>Mountaineer</strong><br>"Big peaks, expedition goals, altitude challenges"</td><td>Aspirational identity anchoring. Uses "big peaks" and "expedition" to make the athlete feel they belong in the serious mountaineering category.</td><td>Matches Uphill Athlete language around expedition training and altitude. Speaks to the Summit Chaser profile directly.</td></tr>
+<tr><td><strong>Trail Runner</strong><br>"Mountain races, ultras, vertical gain training"</td><td>Differentiates from "runner." The word "mountain" before "races" signals this is not a road running quiz. "Vertical gain" speaks directly to the trail running community.</td><td>Uses trail running community language. "Vertical gain" is a term only mountain runners use, creating instant recognition.</td></tr>
+<tr><td><strong>Climber</strong><br>"Rock, ice, or alpine routes. Vertical is my thing."</td><td>Broad enough to include rock climbers, ice climbers, and alpinists. "Vertical is my thing" uses casual, identity-affirming language that feels personal.</td><td>Conversational register appropriate for climbers, who tend to have a less formal communication style than mountaineers.</td></tr>
+<tr><td><strong>Mountain Multisporter</strong><br>"Ski touring, climbing, running. I do it all across seasons."</td><td>Validates the multisport identity. Many athletes feel they don't fit neatly into one category. This option tells them "we see you."</td><td>"I do it all" uses first person to mirror how multisport athletes describe themselves. "Across seasons" signals year-round lifestyle.</td></tr>
+<tr><td><strong>Getting Started</strong><br>"Hiker or gym athlete ready to step into mountain sports"</td><td>Removes intimidation. "Getting Started" is welcoming, not judgmental. "Ready to step into" affirms their aspiration without questioning their credentials.</td><td>Echoes Uphill Athlete's "everyone starts somewhere" and "coaching is for anyone who desires to move their body with intention" messaging.</td></tr>
+</table>
+
+<h3>Q5 Answer Design</h3>
+<p>Each Q5 answer articulates a specific pain point using the language athletes use to describe it themselves. This creates a "they read my mind" moment that builds trust.</p>
+<ul>
+<li><strong>"I don't know if my training approach is actually working"</strong> - Targets the validation-seeker. Uses "actually" to capture the specific anxiety of uncertainty.</li>
+<li><strong>"I'm training hard but stuck at a plateau"</strong> - The plateau framing resonates with experienced athletes. "Training hard" validates effort while "stuck" names the frustration.</li>
+<li><strong>"Balancing training with work and family is overwhelming"</strong> - Names the specific constraint of the professional athlete. "Overwhelming" captures the emotional weight, not just the logistical challenge.</li>
+<li><strong>"I'm coming back from injury or a long break and don't want to overdo it"</strong> - "Don't want to overdo it" captures the specific fear of comeback athletes: doing too much, too soon.</li>
+<li><strong>"I don't know where to start"</strong> - Simple, honest, and disarming. No jargon. Gives permission to be a beginner.</li>
+</ul>
+
+<div class="highlight">
+<strong>Key principle:</strong> No answer option makes the quiz-taker feel bad about their selection. Even low-scoring answers are framed positively. "Getting Started" is not "Beginner." "Not yet" is not "No." The language consistently affirms the athlete's position while generating accurate segmentation data.
+</div>
+</div>
+</details>
+
+<!-- SECTION 3 -->
+<details>
+<summary><span class="section-num">3</span> Scoring Logic Explained</summary>
+<div class="section-content">
+<p>The scoring model is designed to measure <strong>readiness to engage with Uphill Athlete products</strong>, not fitness level. A high score means "ready for coaching or a structured plan," not "already fit."</p>
+
+<table>
+<tr><th>Question</th><th>Max Points</th><th>Weight Rationale</th></tr>
+<tr><td>Q2: Training Hours</td><td>18</td><td>Highest weight. Training volume is the most reliable signal of commitment and coaching readiness. Athletes training 10+ hours/week are already invested in the process.</td></tr>
+<tr><td>Q1: Discipline</td><td>15</td><td>Mountaineers score highest (15) because expedition-focused athletes have the highest coaching conversion rate and highest lifetime value.</td></tr>
+<tr><td>Q4: Confidence</td><td>15</td><td>High confidence correlates with active training and specific objectives. "Bring it on" athletes are often ready for coaching to optimize, not begin.</td></tr>
+<tr><td>Q6: Committed Objective</td><td>15</td><td>Binary but high impact. Having a date on the calendar is the single strongest buying signal for coaching services.</td></tr>
+<tr><td>Q7: Expert Guidance</td><td>15</td><td>Direct measurement of coaching receptiveness. 5 stars = "essential to my success" = ready for coaching conversation.</td></tr>
+<tr><td>Q3: Training Methods</td><td>14</td><td>Multi-select up to 14 points. Structured methods (periodization, zones) indicate sophistication. "None of these" indicates education-first approach needed.</td></tr>
+<tr><td>Q5: Challenge</td><td>14</td><td>"Stuck at a plateau" scores highest (14) because plateau athletes convert at the highest rate. They have the effort and need the structure.</td></tr>
+</table>
+
+<h3>Temperature Bands</h3>
+<table>
+<tr><th>Band</th><th>Score</th><th>Profile</th><th>Strategy</th></tr>
+<tr><td><span class="tag tag-green">Hot</span></td><td>80-100</td><td>High volume, committed objective, wants guidance</td><td>Coach consultation CTA. Direct, confident messaging. Case studies and guarantee emphasis.</td></tr>
+<tr><td><span class="tag tag-amber">Warm</span></td><td>50-79</td><td>Training regularly, exploring options, possible plateau</td><td>Training plan or group CTA. Education-led messaging. Methodology proof and athlete stories.</td></tr>
+<tr><td><span class="tag tag-blue">Cold</span></td><td>0-49</td><td>Early stage, low volume, no specific objective</td><td>Free content CTA. Foundational education. Remove intimidation. Beginner-friendly entry points.</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Design decision:</strong> Scores are capped at 100 even though the theoretical maximum is 106 (if tag_cloud max is reached). This prevents awkward "105/100" displays and simplifies the temperature calculation. The 80/50 thresholds were chosen to create roughly 20%/40%/40% distribution based on expected mountain athlete audience composition.
+</div>
+</div>
+</details>
+
+<!-- SECTION 4 -->
+<details>
+<summary><span class="section-num">4</span> Email Sequence Strategy</summary>
+<div class="section-content">
+<p>The email architecture uses a layered personalization system. Every lead receives the Welcome sequence (3 emails). Then they branch into one of three temperature-specific sequences. Finally, all leads receive the Re-Engagement sequence.</p>
+
+<h3>Sequence Architecture</h3>
+<table>
+<tr><th>Sequence</th><th>Emails</th><th>Days</th><th>Purpose</th><th>Conversion Goal</th></tr>
+<tr><td><strong>Welcome</strong></td><td>3</td><td>0, 2, 5</td><td>Deliver results, establish methodology, build trust via Steve House story</td><td>Open rate and engagement baseline</td></tr>
+<tr><td><strong>Cold Nurture</strong></td><td>7</td><td>1-23</td><td>Educate on mountain-specific training fundamentals. Build vocabulary. Remove intimidation.</td><td>Beginner plan purchase or Training Groups signup</td></tr>
+<tr><td><strong>Warm Activation</strong></td><td>6</td><td>1-15</td><td>Address the effort-results gap. Prove methodology with data and stories. Introduce coaching.</td><td>Training plan purchase or coaching consultation</td></tr>
+<tr><td><strong>Hot Path</strong></td><td>4</td><td>1-9</td><td>Validate readiness. Case study. Guarantee. Coach match. Fast path to consultation.</td><td>Free coach consultation booking</td></tr>
+<tr><td><strong>Re-Engagement</strong></td><td>3</td><td>+3, +10, +17</td><td>Check-in, new content, graceful close. Keeps door open without pressure.</td><td>Return to site or plan purchase</td></tr>
+</table>
+
+<h3>Personalization Layers</h3>
+<ul>
+<li><strong>Temperature</strong> determines which sequence track (hot/warm/cold)</li>
+<li><strong>Profile</strong> controls <code>{{profile_block}}</code> content injected into 15 emails. Each block is a 2-3 sentence paragraph customized for the specific profile + email context.</li>
+<li><strong>Q1 Answer (Discipline)</strong> controls <code>{{answer_callback_1}}</code> with discipline-specific training advice</li>
+<li><strong>Q5 Answer (Challenge)</strong> controls <code>{{answer_callback_2}}</code> with challenge-specific guidance</li>
+</ul>
+
+<div class="highlight">
+<strong>Content blocks total:</strong> 80+ blocks across profile blocks (75 = 5 profiles x 15 emails) and answer callbacks (50 = 5 Q1 answers x 7 emails + 5 Q5 answers x 5 emails). This creates thousands of unique email combinations from 26 templates.
+</div>
+
+<h3>Email Category Mix</h3>
+<p>Each sequence follows a deliberate content rhythm:</p>
+<ul>
+<li><strong>Education emails</strong> (40%) - Training methodology, zones, periodization. Value-first.</li>
+<li><strong>Story emails</strong> (25%) - Athlete success stories, Steve House narrative. Social proof.</li>
+<li><strong>Community emails</strong> (15%) - Training groups, podcast, belonging. Identity reinforcement.</li>
+<li><strong>Conversion emails</strong> (20%) - Product recommendations, coaching invitation. Soft close only.</li>
+</ul>
+</div>
+</details>
+
+<!-- SECTION 5 -->
+<details>
+<summary><span class="section-num">5</span> Persuasion Techniques Used</summary>
+<div class="section-content">
+<p>The quiz funnel employs evidence-based persuasion principles throughout. These are aligned with Uphill Athlete's brand values: authoritative, honest, no hype.</p>
+
+<table>
+<tr><th>Technique</th><th>Where Used</th><th>How It Works</th></tr>
+<tr><td><strong>Identity-Based Persuasion</strong></td><td>Q1 (card selection), profile names, email profile blocks</td><td>When someone identifies as a "Summit Chaser" or "Trail Blazer," they adopt that identity. Product recommendations mapped to that identity feel like natural extensions of who they are, not sales pitches.</td></tr>
+<tr><td><strong>The Curiosity Gap</strong></td><td>Landing page headline, email subject lines</td><td>"What's Your Mountain Training Profile?" creates a gap between what the athlete knows about themselves and what the quiz reveals. The gap can only be closed by completing the quiz.</td></tr>
+<tr><td><strong>Loss Aversion</strong></td><td>Q5 (challenge framing), warm sequence emails</td><td>The quiz surfaces what the athlete is missing (structure, periodization, precision). The gap between effort and results is framed as a loss: "you're leaving adaptation on the table."</td></tr>
+<tr><td><strong>Social Proof</strong></td><td>Steve House story (W-3), athlete stories (CN-4, WA-3, HP-2)</td><td>Real athlete outcomes (Sarah's three summits, Mark's plateau breakthrough, James's Denali success) provide third-party validation that is more credible than claims.</td></tr>
+<tr><td><strong>Authority Positioning</strong></td><td>"100 years of endurance science," "evidence-based," coach credentials</td><td>Uphill Athlete's methodology is positioned as the legitimate, scientifically validated approach. DIY approaches are implicitly positioned as risky and unproven.</td></tr>
+<tr><td><strong>Commitment Escalation</strong></td><td>Quiz flow, email sequence progression</td><td>Each interaction (answer a question, open an email, click a link) represents a small commitment. By the time the coaching CTA appears, the lead has made 10+ micro-commitments.</td></tr>
+<tr><td><strong>The Guarantee Frame</strong></td><td>HP-3, coaching mentions</td><td>"100% satisfaction guarantee after 12 weeks" removes the risk of the purchase decision. Combined with authority, it creates a "no downside" frame: "if the science works, you win; if it doesn't, you get your money back."</td></tr>
+<tr><td><strong>Reciprocity</strong></td><td>Free quiz results, free training insights, education emails</td><td>The quiz provides genuine value before asking for anything. 7-23 days of free education creates reciprocity that makes the eventual product recommendation feel earned, not intrusive.</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Brand alignment note:</strong> Every persuasion technique is deployed within Uphill Athlete's brand guidelines. There are no countdown timers, no artificial urgency, no "limited spots" claims. The persuasion comes from genuine expertise, real athlete stories, and a methodology that speaks for itself. This aligns with the brand voice: "No shortcuts, dogma, or gimmicks."
+</div>
+</div>
+</details>
+
+<!-- SECTION 6 -->
+<details>
+<summary><span class="section-num">6</span> Customer Segments Explained</summary>
+<div class="section-content">
+<p>The five profiles are derived from Uphill Athlete's actual customer base and mapped to specific product pathways. Each profile has distinct messaging, CTAs, and email content.</p>
+
+<table>
+<tr><th>Profile</th><th>Core Identity</th><th>Primary Product Path</th><th>Messaging Approach</th></tr>
+<tr><td><strong>Summit Chaser</strong></td><td>Goal-driven mountaineer with expedition objectives. 35-55, high income, successful professional.</td><td>1:1 Coaching (primary), Comprehensive Expedition Plan, Hypoxic Conditioning</td><td>Results-focused. Speak to stakes: expedition investment justifies coaching cost. Case studies from Denali/Everest athletes.</td></tr>
+<tr><td><strong>Trail Blazer</strong></td><td>Mountain runner focused on ultras and vertical gain races. 25-45, competitive, Strava-active.</td><td>Trail Running Plans (entry), Training Library (retention), Coaching (upgrade)</td><td>Energetic but grounded. Science of uphill performance. Race-specific language. "Flat running is boring" identity.</td></tr>
+<tr><td><strong>Alpine Apprentice</strong></td><td>Aspiring mountaineer, new to the sport. 25-40, budget-conscious, inspired by books/films.</td><td>Beginner Mountain Fitness Plan, Chamonix Mountain Fit, Training for the Uphill Athlete book</td><td>Welcoming, educational, intimidation-removing. "Everyone starts somewhere." Safe entry points with low financial commitment.</td></tr>
+<tr><td><strong>Mountain Multisport</strong></td><td>Multi-discipline athlete: ski touring, climbing, running across seasons. 30-50, mountain town lifestyle.</td><td>Training Library (primary), Training Groups, Coaching for periodization</td><td>Identity-affirming: "mountain person" who does not fit one sport box. Aerobic base as universal currency. Seasonal periodization.</td></tr>
+<tr><td><strong>Comeback Climber</strong></td><td>Returning after injury, illness, or life break. 40-60+, cautious, holistic values.</td><td>1:1 Coaching (highest value), Yoga for Recovery, Chamonix Mountain Fit, Beginner Plan</td><td>Compassionate, patient, holistic. Steve House comeback reference. "We meet you where you are." Safety and gradualness.</td></tr>
+</table>
+
+<h3>Profile Distribution (Expected)</h3>
+<p>Based on Uphill Athlete's audience composition and the scoring model:</p>
+<ul>
+<li><strong>Summit Chaser:</strong> ~20% of quiz takers (highest-value segment)</li>
+<li><strong>Trail Blazer:</strong> ~30% (largest segment, drives trail running plan sales)</li>
+<li><strong>Alpine Apprentice:</strong> ~20% (educational funnel, book and beginner plan entry)</li>
+<li><strong>Mountain Multisport:</strong> ~15% (Training Library subscription target)</li>
+<li><strong>Comeback Climber:</strong> ~15% (coaching conversion opportunity)</li>
+</ul>
+
+<h3>Profile-to-Product Revenue Model</h3>
+<div class="highlight">
+<strong>Immediate revenue path:</strong> Trail Blazer and Alpine Apprentice profiles drive training plan purchases ($39-$99 one-time). Summit Chaser and Comeback Climber profiles drive coaching consultations ($349-$399/month recurring). Mountain Multisport profiles drive Training Library subscriptions ($29/month recurring).
+<br><br>
+<strong>Long-term value:</strong> Cold leads who enter through a beginner plan have a documented upgrade path to coaching. The email sequences nurture this transition over weeks and months, with the Training Library subscription as a midpoint upgrade.
+</div>
+</div>
+</details>
+
+</div>
+</body>
+</html>

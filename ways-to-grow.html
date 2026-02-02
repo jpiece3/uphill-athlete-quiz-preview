@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Ways to Grow</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.25}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.02em}
+h2{font-size:1.5rem;font-weight:800;margin-bottom:1rem;padding-top:2rem}
+h3{font-size:1.125rem;font-weight:700;margin-bottom:0.5rem}
+h4{font-size:0.875rem;font-weight:700;letter-spacing:0.02em}
+a{color:#5BA4D9;text-decoration:none}
+a:hover{color:#3D8AC4}
+.back-link{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.5rem;color:#5BA4D9}
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2.5rem;position:relative}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero h1{color:#fff;margin-bottom:0.5rem}
+.hero p{color:#B8C0CE}
+.badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;border:2px solid #5BA4D9;padding:0.4em 0.8em;border-radius:4px;margin-bottom:1rem}
+.section-label{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;margin-bottom:0.5rem}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin:1.5rem 0}
+.feature-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.5rem;position:relative}
+.feature-card::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.feature-card h3{font-size:1rem;margin-bottom:0.5rem}
+.feature-card p{color:#4A4A68;font-size:0.95rem;margin-bottom:0.75rem}
+.feature-card p:last-child{margin-bottom:0}
+.included-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;background:#22C55E;color:#fff;padding:0.3em 0.6em;border-radius:3px;margin-bottom:0.75rem}
+.addon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin:1.5rem 0}
+.addon-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.5rem;position:relative;display:flex;flex-direction:column}
+.addon-card::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.addon-card h3{font-size:1rem;margin-bottom:0.5rem}
+.addon-card p{color:#4A4A68;font-size:0.95rem;margin-bottom:0.75rem;flex:1}
+.price-tag{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:800;color:#5BA4D9;margin-top:auto;padding-top:0.5rem;border-top:1px solid #E8ECF2}
+.price-tag span{font-size:0.75rem;font-weight:600;color:#7A7A96}
+.highlight{background:rgba(91,164,217,0.06);border-left:3px solid #5BA4D9;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1rem 0}
+@media(max-width:640px){.container{padding:1rem}.hero{padding:2rem 1rem}.feature-grid,.addon-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="back-link">&larr; Back to Overview</a>
+
+<div class="hero">
+<div class="badge">Growth Strategy</div>
+<h1>Ways to Grow</h1>
+<p>Features included with your quiz funnel and add-on services to scale your lead generation and conversion.</p>
+</div>
+
+<!-- INCLUDED FEATURES -->
+<div class="section-label">Included with Your Quiz Funnel</div>
+<h2>Included Features</h2>
+
+<div class="feature-grid">
+<div class="feature-card">
+<div class="included-badge">Included</div>
+<h3>Lead Form Integration</h3>
+<p>Every quiz completion captures the lead's email, profile, score, temperature, and individual question answers. Data is stored in Supabase with full export capability.</p>
+<p>Integrate with your existing CRM, email marketing platform, or sales pipeline. Webhooks available for real-time lead notifications.</p>
+</div>
+<div class="feature-card">
+<div class="included-badge">Included</div>
+<h3>Custom Domain</h3>
+<p>The quiz funnel deploys to your own domain or subdomain (e.g., quiz.uphillathlete.com). Full SSL, fast global delivery via Vercel edge network.</p>
+<p>Branded experience from first click to email delivery. No third-party quiz platform branding visible to visitors.</p>
+</div>
+<div class="feature-card">
+<div class="included-badge">Included</div>
+<h3>Lead Intelligence Agent</h3>
+<p>Built-in analytics dashboard at /admin tracks every funnel metric: page views, quiz starts, completion rates, email captures, temperature distribution, answer analysis, and UTM sources.</p>
+<p>Password-protected. Chart.js visualizations. Real-time data. Identifies which traffic sources produce the highest-quality leads and which quiz answers predict conversion.</p>
+</div>
+</div>
+
+<!-- GROWTH ADD-ONS -->
+<div class="section-label">Optional Add-Ons</div>
+<h2>Growth Add-Ons</h2>
+
+<div class="addon-grid">
+<div class="addon-card">
+<h3>IG DM Automation</h3>
+<p>Automated Instagram DM sequences triggered by quiz completion or specific keywords in comments and messages. Deliver quiz results, training tips, and coaching invitations directly in Instagram DMs.</p>
+<p>Increases engagement with leads who prefer social messaging over email. Complements the email sequences with a second touchpoint channel.</p>
+<div class="price-tag">$99 <span>/month</span></div>
+</div>
+<div class="addon-card">
+<h3>Voice Follow-Up</h3>
+<p>AI-powered voice calls to hot leads within 5 minutes of quiz completion. Personalized script references their profile, score, and answers. Routes to live agent for coaching consultation booking.</p>
+<p>Hot leads contacted within 5 minutes convert at 10x the rate of leads contacted after 24 hours. Voice follow-up captures the peak moment of engagement.</p>
+<div class="price-tag">$1,000 <span>/month</span></div>
+</div>
+<div class="addon-card">
+<h3>Text Message Sequences</h3>
+<p>SMS follow-up sequences triggered by quiz completion. 3-5 text messages over 7 days with training tips and product links. Complements email for leads who prefer mobile messaging.</p>
+<p>SMS open rates average 98% vs. 20-30% for email. Reaches leads who may not check email regularly but always have their phone.</p>
+<div class="price-tag">$49 <span>/month</span></div>
+</div>
+<div class="addon-card">
+<h3>Additional Quiz Funnels</h3>
+<p>Build additional quiz funnels targeting different segments or objectives. Examples: "What's Your Expedition Readiness Score?", "Trail Running Training Assessment", "Mountain Strength Self-Test."</p>
+<p>Multiple quiz funnels segment your audience more precisely and provide fresh lead capture points for returning visitors who have already completed the primary quiz.</p>
+<div class="price-tag">$2,000 <span>each</span></div>
+</div>
+</div>
+
+<div class="highlight">
+<strong>Recommended growth path:</strong> Start with the included quiz funnel and analytics dashboard. Monitor lead quality and conversion rates for 30 days. Then add IG DM Automation to capture social-first leads. If hot lead volume justifies it, add Voice Follow-Up to maximize coaching consultation bookings.
+</div>
+
+</div>
+</body>
+</html>

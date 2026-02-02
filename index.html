@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Quiz Funnel Client Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.25}
+h1{font-size:2.25rem;font-weight:900;letter-spacing:-0.02em}
+h2{font-size:1.5rem;font-weight:800;margin-bottom:1rem}
+h3{font-size:1rem;font-weight:700}
+a{color:#5BA4D9;text-decoration:none}
+a:hover{color:#3D8AC4}
+
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:40px;height:40px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:40px;height:40px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero .badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;border:2px solid #5BA4D9;padding:0.4em 0.8em;border-radius:4px;margin-bottom:1rem}
+.hero h1{color:#fff;margin-bottom:0.75rem}
+.hero p{color:#B8C0CE;font-size:1.05rem;max-width:600px}
+.hero .subtitle{color:#7A7A96;font-size:0.85rem;margin-top:1.5rem;font-family:'Montserrat',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.08em}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:2rem}
+
+.nav-card{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.5rem;position:relative;display:flex;flex-direction:column;transition:border-color 0.15s cubic-bezier(0.2,0,0,1),box-shadow 0.15s cubic-bezier(0.2,0,0,1),transform 0.15s cubic-bezier(0.2,0,0,1)}
+.nav-card::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9;transition:width 0.15s,height 0.15s}
+.nav-card:hover{border-color:#B8C0CE;box-shadow:0 4px 8px rgba(30,40,60,0.06),0 8px 16px rgba(30,40,60,0.04),0 16px 32px rgba(30,40,60,0.03);transform:translateY(-2px)}
+.nav-card:hover::before{width:28px;height:28px}
+
+.card-num{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#7A7A96;margin-bottom:0.5rem}
+.nav-card h3{margin-bottom:0.5rem;font-size:1rem}
+.nav-card p{color:#4A4A68;font-size:0.9rem;flex:1;margin-bottom:1rem}
+.card-link{font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#5BA4D9;margin-top:auto}
+.card-link:hover{color:#3D8AC4}
+
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;background:#1A1A2E;padding:1.5rem;border-radius:8px;margin-bottom:2rem}
+.stat{text-align:center}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#5BA4D9}
+.stat-label{font-size:0.65rem;color:#7A7A96;text-transform:uppercase;letter-spacing:0.08em;margin-top:0.15rem}
+
+.footer{text-align:center;padding:2rem 0;border-top:1px solid #E8ECF2;margin-top:2rem;color:#7A7A96;font-size:0.85rem}
+
+@media(max-width:640px){.container{padding:1rem}.hero{padding:2rem 1rem}h1{font-size:1.75rem}.card-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+<div class="badge">Client Preview</div>
+<h1>Uphill Athlete</h1>
+<p>Mountain Training Profile quiz funnel. Review the complete strategy, copy, email sequences, and growth plan below.</p>
+<div class="subtitle">What's Your Mountain Training Profile?</div>
+</div>
+
+<div class="stats-bar">
+<div class="stat"><div class="stat-num">7</div><div class="stat-label">Questions</div></div>
+<div class="stat"><div class="stat-num">5</div><div class="stat-label">Profiles</div></div>
+<div class="stat"><div class="stat-num">26</div><div class="stat-label">Emails</div></div>
+<div class="stat"><div class="stat-num">80+</div><div class="stat-label">Content Blocks</div></div>
+<div class="stat"><div class="stat-num">3</div><div class="stat-label">Temp Bands</div></div>
+</div>
+
+<div class="card-grid">
+
+<a href="walkthrough.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">01</div>
+<h3>Quiz Funnel Walkthrough</h3>
+<p>Complete guide to how the quiz works, why it works, and what it delivers. Includes step-by-step flow, stats, and profile overview.</p>
+<span class="card-link">View Walkthrough &rarr;</span>
+</a>
+
+<a href="research.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">02</div>
+<h3>Research Report</h3>
+<p>Brand voice analysis, customer segments, competitive landscape, SEO keywords, and psychological angles driving the quiz strategy.</p>
+<span class="card-link">View Research &rarr;</span>
+</a>
+
+<a href="email-sequences.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">03</div>
+<h3>Email Sequences</h3>
+<p>All 26 emails across 5 sequences with personalization placeholders. Filter by sequence type: Welcome, Cold, Warm, Hot, Re-Engagement.</p>
+<span class="card-link">View Emails &rarr;</span>
+</a>
+
+<a href="quiz-copy-explainer.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">04</div>
+<h3>Copy Explainer</h3>
+<p>Deep dive into every copy decision: question rationale, answer psychology, scoring logic, email strategy, persuasion techniques, and segments.</p>
+<span class="card-link">View Explainer &rarr;</span>
+</a>
+
+<a href="ways-to-grow.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">05</div>
+<h3>Ways to Grow</h3>
+<p>Included features (Lead Form, Custom Domain, Lead Intelligence Agent) and growth add-ons (IG DM, Voice, SMS, Additional Funnels).</p>
+<span class="card-link">View Growth Options &rarr;</span>
+</a>
+
+<a href="ad-strategy.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">06</div>
+<h3>Ad Strategy</h3>
+<p>Google Ads and Facebook/Instagram ad variations targeting hot, warm, and cold audiences. Includes A/B testing recommendations.</p>
+<span class="card-link">View Ad Strategy &rarr;</span>
+</a>
+
+<a href="social-content.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">07</div>
+<h3>Social Content Calendar</h3>
+<p>4-week content plan with content pillars, platform strategy for Instagram, LinkedIn, and YouTube, and daily post ideas.</p>
+<span class="card-link">View Content Calendar &rarr;</span>
+</a>
+
+<a href="sales-scripts.html" class="nav-card" style="text-decoration:none;color:inherit">
+<div class="card-num">08</div>
+<h3>Sales Scripts</h3>
+<p>Conversation frameworks for hot (coaching close), warm (education + plans), and cold (value demo) leads. Includes objection handling.</p>
+<span class="card-link">View Sales Scripts &rarr;</span>
+</a>
+
+</div>
+
+<div class="footer">
+Uphill Athlete Quiz Funnel | Built by Vibe Marketing Studio
+</div>
+
+</div>
+</body>
+</html>

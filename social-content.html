@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Social Content Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.25}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.02em}
+h2{font-size:1.5rem;font-weight:800;margin-bottom:1rem;padding-top:2rem}
+h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+a{color:#5BA4D9;text-decoration:none}
+a:hover{color:#3D8AC4}
+.back-link{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.5rem;color:#5BA4D9}
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2.5rem;position:relative}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero h1{color:#fff;margin-bottom:0.5rem}
+.hero p{color:#B8C0CE}
+.badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;border:2px solid #5BA4D9;padding:0.4em 0.8em;border-radius:4px;margin-bottom:1rem}
+.section-label{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5BA4D9;margin-bottom:0.5rem}
+.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.pillar{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.5rem;position:relative}
+.pillar::before{content:'';position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.pillar h3{font-size:0.9rem}
+.pillar p{color:#4A4A68;font-size:0.9rem;margin-top:0.5rem}
+.pillar .keywords{margin-top:0.75rem}
+.keyword{display:inline-block;background:rgba(91,164,217,0.08);border-radius:4px;padding:0.15em 0.4em;font-size:0.75rem;color:#3D8AC4;margin:0.1rem}
+.platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+.platform{background:#fff;border:1px solid #D8DDE6;border-radius:8px;padding:1.5rem;position:relative}
+.platform::before{content:'';position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.platform h3{font-size:0.9rem;margin-bottom:0.75rem}
+.platform ul{margin:0;padding-left:1.25rem;color:#4A4A68;font-size:0.9rem}
+.platform li{margin-bottom:0.5rem}
+.week-header{background:#1A1A2E;color:#fff;padding:1rem 1.5rem;border-radius:6px;margin:2rem 0 1rem;display:flex;align-items:center;justify-content:space-between}
+.week-header h3{color:#fff;margin:0}
+.week-header span{font-size:0.75rem;color:#7A7A96}
+.post-grid{display:grid;gap:0.75rem;margin-bottom:1rem}
+.post{background:#fff;border:1px solid #D8DDE6;border-radius:6px;padding:1rem 1.25rem;display:grid;grid-template-columns:80px 1fr auto;gap:1rem;align-items:start}
+.post-day{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7A7A96}
+.post-content h4{font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;color:#1A1A2E;margin-bottom:0.25rem}
+.post-content p{color:#4A4A68;font-size:0.85rem;margin:0}
+.post-platform{font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;padding:0.2em 0.5em;border-radius:3px;white-space:nowrap;height:fit-content}
+.p-ig{background:rgba(193,53,132,0.1);color:#C13584}
+.p-li{background:rgba(10,102,194,0.1);color:#0A66C2}
+.p-yt{background:rgba(255,0,0,0.1);color:#CC0000}
+.p-all{background:rgba(91,164,217,0.1);color:#3D8AC4}
+.highlight{background:rgba(91,164,217,0.06);border-left:3px solid #5BA4D9;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1rem 0}
+@media(max-width:640px){.container{padding:1rem}.hero{padding:2rem 1rem}.post{grid-template-columns:60px 1fr;gap:0.5rem}.post-platform{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="back-link">&larr; Back to Overview</a>
+
+<div class="hero">
+<div class="badge">Strategy Pack</div>
+<h1>Social Content Calendar</h1>
+<p>4-week content plan with 3 pillars, platform strategy, and specific post ideas to drive quiz funnel traffic.</p>
+</div>
+
+<!-- CONTENT PILLARS -->
+<div class="section-label">Foundation</div>
+<h2>Content Pillars</h2>
+
+<div class="pillar-grid">
+<div class="pillar">
+<h3>1. Training Science</h3>
+<p>Evidence-based training principles. Aerobic base, intensity distribution, periodization, training zones. Educational content that positions Uphill Athlete as the authority.</p>
+<div class="keywords">
+<span class="keyword">mountaineering training</span>
+<span class="keyword">aerobic base</span>
+<span class="keyword">training zones</span>
+<span class="keyword">periodization</span>
+</div>
+</div>
+<div class="pillar">
+<h3>2. Athlete Stories</h3>
+<p>Real results from real athletes. Summit successes, race finishes, comeback stories. Social proof that builds trust and drives emotional connection.</p>
+<div class="keywords">
+<span class="keyword">athlete transformation</span>
+<span class="keyword">summit success</span>
+<span class="keyword">coaching results</span>
+</div>
+</div>
+<div class="pillar">
+<h3>3. Mountain Culture</h3>
+<p>The mountain athlete lifestyle. Gear, destinations, philosophy. Community belonging content that reinforces the Uphill Athlete identity and brand values.</p>
+<div class="keywords">
+<span class="keyword">mountain sports</span>
+<span class="keyword">trail running</span>
+<span class="keyword">expedition prep</span>
+</div>
+</div>
+<div class="pillar">
+<h3>4. Quiz Promotion</h3>
+<p>Direct quiz funnel promotion. Profile reveals, quiz teasers, result previews. Drives quiz traffic through curiosity and identity-based hooks.</p>
+<div class="keywords">
+<span class="keyword">mountain training profile</span>
+<span class="keyword">training assessment</span>
+<span class="keyword">athlete type</span>
+</div>
+</div>
+</div>
+
+<!-- PLATFORM STRATEGY -->
+<h2>Platform Strategy</h2>
+
+<div class="platform-grid">
+<div class="platform">
+<h3>Instagram</h3>
+<ul>
+<li><strong>Feed:</strong> Mountain photography with training tip overlays. Carousel education posts. Athlete story highlights. 3-4 posts per week.</li>
+<li><strong>Stories:</strong> Daily training tips, poll stickers ("What's your biggest training challenge?"), quiz link in bio CTA. Quiz teaser carousels.</li>
+<li><strong>Reels:</strong> 15-30 second training tips. "One thing most mountain athletes get wrong" format. Coach quick takes.</li>
+<li><strong>Bio link:</strong> Quiz landing page URL</li>
+</ul>
+</div>
+<div class="platform">
+<h3>LinkedIn</h3>
+<ul>
+<li><strong>Posts:</strong> Professional athlete angle. "Corporate athletes" who balance demanding careers with mountain objectives. 2 posts per week.</li>
+<li><strong>Articles:</strong> Long-form training methodology pieces. Periodization frameworks for busy professionals. 1 per month.</li>
+<li><strong>Audience:</strong> 35-55 professionals, high income, mountain sport hobbyists. Key demographic for coaching conversion.</li>
+</ul>
+</div>
+<div class="platform">
+<h3>YouTube</h3>
+<ul>
+<li><strong>Long-form:</strong> Training methodology deep dives. Athlete transformation stories. Coach Q&A sessions. 1-2 per month.</li>
+<li><strong>Shorts:</strong> Training tips, gear quick takes, mountain motivation. Cross-post from Reels. 2-3 per week.</li>
+<li><strong>Description links:</strong> Quiz URL in every video description</li>
+</ul>
+</div>
+</div>
+
+<!-- WEEK 1 -->
+<div class="week-header"><h3>Week 1: Training Science Focus</h3><span>Quiz Launch Week</span></div>
+<div class="post-grid">
+<div class="post">
+<div class="post-day">Monday</div>
+<div class="post-content"><h4>Quiz Launch Announcement</h4><p>"What kind of mountain athlete are you? We built a 2-minute quiz to find your training profile. Link in bio." Carousel showing the 5 profile types with brief descriptions.</p></div>
+<span class="post-platform p-all">All</span>
+</div>
+<div class="post">
+<div class="post-day">Tuesday</div>
+<div class="post-content"><h4>The 80/20 Rule Explained</h4><p>Infographic: "80% of your training should feel easy. Here's why." Breakdown of intensity distribution for mountain athletes. End slide drives to quiz.</p></div>
+<span class="post-platform p-ig">IG Carousel</span>
+</div>
+<div class="post">
+<div class="post-day">Wednesday</div>
+<div class="post-content"><h4>Coach Quick Take</h4><p>15-second Reel: "The biggest mistake mountain athletes make is training too hard on easy days." Coach explains the gray zone. Quiz CTA in caption.</p></div>
+<span class="post-platform p-ig">IG Reel</span>
+</div>
+<div class="post">
+<div class="post-day">Thursday</div>
+<div class="post-content"><h4>Time-Crunched Professional</h4><p>"You don't need 15 hours a week to train for the mountains. Here's what 5 focused hours can do." LinkedIn post targeting corporate athletes. Quiz link.</p></div>
+<span class="post-platform p-li">LinkedIn</span>
+</div>
+<div class="post">
+<div class="post-day">Friday</div>
+<div class="post-content"><h4>Training Zones Visual</h4><p>Single-image post: Zone 1-5 breakdown for mountain athletes. "Which zone do you spend the most time in?" Poll sticker in Stories.</p></div>
+<span class="post-platform p-ig">IG Feed + Story</span>
+</div>
+<div class="post">
+<div class="post-day">Saturday</div>
+<div class="post-content"><h4>Weekend Quiz Reminder</h4><p>Story: "Long training day tomorrow? Take 2 minutes to find out if you're training smart. Link in bio." Mountain sunrise photo.</p></div>
+<span class="post-platform p-ig">IG Story</span>
+</div>
+</div>
+
+<!-- WEEK 2 -->
+<div class="week-header"><h3>Week 2: Athlete Stories Focus</h3><span>Social Proof Week</span></div>
+<div class="post-grid">
+<div class="post">
+<div class="post-day">Monday</div>
+<div class="post-content"><h4>Steve House Comeback Story</h4><p>"He fell 80 feet off a mountain. Here's how he came back." Photo of Steve House. Carousel with 3 principles: consistency, gradualness, modulation.</p></div>
+<span class="post-platform p-all">All</span>
+</div>
+<div class="post">
+<div class="post-day">Tuesday</div>
+<div class="post-content"><h4>Profile Spotlight: The Trail Blazer</h4><p>"The Trail Blazer: mountain runner, ultra racer, vertical gain seeker. Is this you?" Quiz CTA. Use trail running mountain photography.</p></div>
+<span class="post-platform p-ig">IG Feed</span>
+</div>
+<div class="post">
+<div class="post-day">Wednesday</div>
+<div class="post-content"><h4>Athlete Transformation Video</h4><p>YouTube Short / Reel: Before and after stats from a coached athlete. "16 weeks. Same athlete. Different training structure. Different result."</p></div>
+<span class="post-platform p-yt">YT Short + Reel</span>
+</div>
+<div class="post">
+<div class="post-day">Thursday</div>
+<div class="post-content"><h4>Corporate Athlete Story</h4><p>"He runs a company. He also summited Denali. How he balanced both." LinkedIn post about a coached professional athlete.</p></div>
+<span class="post-platform p-li">LinkedIn</span>
+</div>
+<div class="post">
+<div class="post-day">Friday</div>
+<div class="post-content"><h4>Profile Spotlight: The Comeback Climber</h4><p>"Coming back is the hardest part. Here's how to do it right." Carousel with comeback training principles. Quiz CTA in last slide.</p></div>
+<span class="post-platform p-ig">IG Carousel</span>
+</div>
+<div class="post">
+<div class="post-day">Saturday</div>
+<div class="post-content"><h4>Podcast Episode Highlight</h4><p>Voices of Experience podcast clip. "The best training advice I ever received." Short clip with audiogram visual. Podcast + quiz links.</p></div>
+<span class="post-platform p-ig">IG Reel</span>
+</div>
+</div>
+
+<!-- WEEK 3 -->
+<div class="week-header"><h3>Week 3: Mountain Culture Focus</h3><span>Community Week</span></div>
+<div class="post-grid">
+<div class="post">
+<div class="post-day">Monday</div>
+<div class="post-content"><h4>Mountain Photo + Training Tip</h4><p>Full-bleed mountain landscape. Overlay text: "All training is exercise but not all exercise is training." Caption explains the difference. Quiz CTA.</p></div>
+<span class="post-platform p-ig">IG Feed</span>
+</div>
+<div class="post">
+<div class="post-day">Tuesday</div>
+<div class="post-content"><h4>Community Spotlight</h4><p>"Meet the Uphill Athlete community. 10,000+ mountain athletes training with purpose." Photo collage of community members. Training Groups CTA.</p></div>
+<span class="post-platform p-all">All</span>
+</div>
+<div class="post">
+<div class="post-day">Wednesday</div>
+<div class="post-content"><h4>Gear for Mountain Training</h4><p>Reel: "5 things you actually need for mountain training (and 3 you don't)." Heart rate monitor, good shoes, training plan. You don't need: a fancy gym, expensive supplements, more time.</p></div>
+<span class="post-platform p-ig">IG Reel</span>
+</div>
+<div class="post">
+<div class="post-day">Thursday</div>
+<div class="post-content"><h4>The Aerobic Base Deep Dive</h4><p>LinkedIn article: "Why the Most Important Training for Mountain Professionals Feels Like Doing Nothing." Long-form piece on Zone 2 training for busy professionals. Quiz link in article.</p></div>
+<span class="post-platform p-li">LinkedIn Article</span>
+</div>
+<div class="post">
+<div class="post-day">Friday</div>
+<div class="post-content"><h4>Profile Spotlight: The Summit Chaser</h4><p>"The Summit Chaser: expedition-driven, peak-focused, altitude-ready. Is this you?" Mountain summit photography. Quiz CTA.</p></div>
+<span class="post-platform p-ig">IG Feed</span>
+</div>
+<div class="post">
+<div class="post-day">Saturday</div>
+<div class="post-content"><h4>Weekend Challenge</h4><p>Story: "This weekend's training challenge: one long Zone 2 session. No music. No podcasts. Just you and the trail. How long can you go?" Engagement poll.</p></div>
+<span class="post-platform p-ig">IG Story</span>
+</div>
+</div>
+
+<!-- WEEK 4 -->
+<div class="week-header"><h3>Week 4: Quiz Promotion Focus</h3><span>Conversion Week</span></div>
+<div class="post-grid">
+<div class="post">
+<div class="post-day">Monday</div>
+<div class="post-content"><h4>Quiz Results Tease</h4><p>Carousel showing all 5 profiles: Summit Chaser, Trail Blazer, Alpine Apprentice, Mountain Multisport, Comeback Climber. "Which one are you? Take the quiz to find out."</p></div>
+<span class="post-platform p-all">All</span>
+</div>
+<div class="post">
+<div class="post-day">Tuesday</div>
+<div class="post-content"><h4>Mountain Confidence Poll</h4><p>Story: "How confident do you feel heading into your next mountain objective?" with emoji scale poll (replicating Q4 from quiz). "Want the full assessment? Link in bio."</p></div>
+<span class="post-platform p-ig">IG Story</span>
+</div>
+<div class="post">
+<div class="post-day">Wednesday</div>
+<div class="post-content"><h4>Training Methodology Video</h4><p>YouTube: "Evidence-Based Mountain Training: The Framework Behind Uphill Athlete." 8-10 minute deep dive on consistency, gradualness, modulation. Quiz link in description.</p></div>
+<span class="post-platform p-yt">YouTube</span>
+</div>
+<div class="post">
+<div class="post-day">Thursday</div>
+<div class="post-content"><h4>ROI of Coaching</h4><p>"You're investing $50K+ in an expedition. A structured training plan costs less than one night in a hotel. Is your body ready?" LinkedIn post. Quiz link.</p></div>
+<span class="post-platform p-li">LinkedIn</span>
+</div>
+<div class="post">
+<div class="post-day">Friday</div>
+<div class="post-content"><h4>Profile Spotlight: Mountain Multisport</h4><p>"Ski touring, climbing, running. You do it all. Here's how to train for all of it." Seasonal sport carousel. Quiz CTA in last slide.</p></div>
+<span class="post-platform p-ig">IG Carousel</span>
+</div>
+<div class="post">
+<div class="post-day">Saturday</div>
+<div class="post-content"><h4>Week 4 Quiz Reminder</h4><p>"One month in. Hundreds of mountain athletes have found their training profile. Have you? 2 minutes. 7 questions. Link in bio." Mountain photography with text overlay.</p></div>
+<span class="post-platform p-ig">IG Feed + Story</span>
+</div>
+</div>
+
+<div class="highlight">
+<strong>Content cadence:</strong> 5-6 posts per week across platforms. Aim for 60% value content (education + stories), 25% community content (culture + engagement), 15% direct quiz promotion. Every post should include a path back to the quiz, whether through link in bio, story link, or description URL.
+</div>
+
+</div>
+</body>
+</html>
