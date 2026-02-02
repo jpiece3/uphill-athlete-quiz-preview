@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uphill Athlete - Content Blocks Explainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#F5F7FA;color:#1A1A2E;line-height:1.7}
+.container{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.25}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.02em}
+h2{font-size:1.25rem;font-weight:800}
+h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+h4{font-size:0.875rem;font-weight:700;letter-spacing:0.02em}
+code{font-family:'SF Mono','Fira Code',monospace;font-size:0.85em;background:rgba(91,164,217,0.08);padding:0.15em 0.4em;border-radius:3px;color:#3D8AC4}
+.hero{background:#1A1A2E;color:#fff;padding:3rem 2rem;border-radius:8px;margin-bottom:2rem;position:relative}
+.hero::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:3px solid #5BA4D9;border-left:3px solid #5BA4D9}
+.hero::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:3px solid #5BA4D9;border-right:3px solid #5BA4D9}
+.hero h1{color:#fff;margin-bottom:0.5rem}
+.hero p{color:#B8C0CE}
+details{background:#fff;border:1px solid #D8DDE6;border-radius:8px;margin-bottom:1rem;overflow:hidden;position:relative}
+details::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9;pointer-events:none;z-index:1}
+summary{padding:1.25rem 1.5rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.02em;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;transition:background 0.15s}
+summary:hover{background:#F5F7FA}
+summary::after{content:'+';font-size:1.5rem;color:#5BA4D9;font-weight:300;transition:transform 0.2s}
+details[open] summary::after{content:'-'}
+summary::-webkit-details-marker{display:none}
+.section-num{display:inline-block;width:28px;height:28px;background:#5BA4D9;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;text-align:center;line-height:28px;border-radius:4px;margin-right:0.75rem;flex-shrink:0}
+.section-content{padding:0 1.5rem 1.5rem;border-top:1px solid #E8ECF2}
+.section-content p{margin:1rem 0;color:#4A4A68}
+.section-content ul{margin:0.75rem 0 0.75rem 1.5rem;color:#4A4A68}
+.section-content li{margin-bottom:0.5rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.9rem}
+th{background:#1A1A2E;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.75rem 1rem;text-align:left}
+td{padding:0.75rem 1rem;border-bottom:1px solid #E8ECF2;color:#4A4A68;vertical-align:top}
+tr:nth-child(even) td{background:#F5F7FA}
+.highlight{background:rgba(91,164,217,0.06);border-left:3px solid #5BA4D9;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1rem 0}
+.highlight strong{color:#1A1A2E}
+.tag{display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;padding:0.2em 0.5em;border-radius:3px;margin-right:0.25rem}
+.tag-blue{background:rgba(91,164,217,0.1);color:#3D8AC4}
+.tag-green{background:rgba(34,197,94,0.1);color:#16A34A}
+.tag-amber{background:rgba(245,158,11,0.1);color:#D97706}
+.tag-red{background:rgba(239,68,68,0.1);color:#DC2626}
+.tag-purple{background:rgba(139,92,246,0.1);color:#7C3AED}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin:1.5rem 0}
+.stat-card{background:#1A1A2E;padding:1.25rem;border-radius:8px;text-align:center;position:relative}
+.stat-card::before{content:'';position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:900;color:#5BA4D9}
+.stat-label{font-size:0.65rem;color:#7A7A96;text-transform:uppercase;letter-spacing:0.08em;margin-top:0.15rem}
+.flow-step{display:flex;align-items:flex-start;gap:1rem;margin:1rem 0;padding:1rem;background:#fff;border:1px solid #E8ECF2;border-radius:6px}
+.flow-num{width:32px;height:32px;background:#5BA4D9;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:800;text-align:center;line-height:32px;border-radius:50%;flex-shrink:0}
+.flow-arrow{text-align:center;color:#5BA4D9;font-size:1.25rem;margin:0.25rem 0}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.comparison-box{background:#fff;border:1px solid #E8ECF2;border-radius:6px;padding:1rem;position:relative}
+.comparison-box::before{content:'';position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid #5BA4D9;border-left:2px solid #5BA4D9}
+.comparison-box h4{margin-bottom:0.5rem;color:#1A1A2E}
+.comparison-box p{font-size:0.85rem;color:#4A4A68;margin:0}
+.profile-label{font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#5BA4D9;margin-bottom:0.25rem}
+@media(max-width:640px){.container{padding:1rem}.hero{padding:2rem 1rem}summary{padding:1rem;font-size:0.875rem}.section-content{padding:0 1rem 1rem}table{font-size:0.8rem}th,td{padding:0.5rem 0.75rem}.comparison{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+<h1>Content Blocks Explainer</h1>
+<p>Uphill Athlete - Mountain Training Profile</p>
+<p style="margin-top:1rem;font-size:0.9rem">How 145 content blocks create thousands of unique email combinations. Every lead receives emails tailored to their profile and their specific quiz answers.</p>
+</div>
+
+<!-- SECTION 1 -->
+<details open>
+<summary><span class="section-num">1</span> What Are Content Blocks?</summary>
+<div class="section-content">
+<p>Content blocks are personalized paragraphs and sentences that get injected into email templates based on who the lead is and how they answered the quiz. Instead of writing separate emails for every possible combination, the system uses <strong>26 email templates</strong> with placeholder variables that get swapped out at send time.</p>
+
+<p>There are two types of content blocks:</p>
+
+<table>
+<tr><th>Type</th><th>Variable</th><th>Driven By</th><th>What It Does</th></tr>
+<tr><td><strong>Profile Block</strong><br><span class="tag tag-blue">profile_block</span></td><td><code>{{profile_block}}</code></td><td>Which of the 5 profiles the lead matched (Summit Chaser, Trail Blazer, etc.)</td><td>Inserts a 2-3 sentence paragraph that speaks directly to the lead's mountain athlete identity. Used in 17 of 26 emails.</td></tr>
+<tr><td><strong>Answer Callback</strong><br><span class="tag tag-purple">answer_callback</span></td><td><code>{{answer_callback_1}}</code><br><code>{{answer_callback_2}}</code></td><td>Specific answers to Q1 (Mountain Discipline) and Q5 (Biggest Challenge)</td><td>Inserts 1-2 sentences of targeted advice based on the exact quiz answers chosen. Used in 12 of 26 emails.</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Why this matters:</strong> A Summit Chaser who is stuck at a plateau receives fundamentally different email content than an Alpine Apprentice who doesn't know where to start. The same email template produces a different reading experience for each lead, without requiring separate email sequences for every combination.
+</div>
+
+<div class="stats-row">
+<div class="stat-card"><div class="stat-num">145</div><div class="stat-label">Total Blocks</div></div>
+<div class="stat-card"><div class="stat-num">85</div><div class="stat-label">Profile Blocks</div></div>
+<div class="stat-card"><div class="stat-num">60</div><div class="stat-label">Answer Callbacks</div></div>
+<div class="stat-card"><div class="stat-num">22/26</div><div class="stat-label">Emails Personalized</div></div>
+</div>
+</div>
+</details>
+
+<!-- SECTION 2 -->
+<details>
+<summary><span class="section-num">2</span> Profile Blocks in Action</summary>
+<div class="section-content">
+<p>Profile blocks inject a paragraph that speaks to the lead's mountain athlete identity. The same email reads differently depending on which of the 5 profiles the lead matched. Here is how the Welcome Email (W-1) reads for each profile:</p>
+
+<table>
+<tr><th>Profile</th><th>W-1 Content Block</th></tr>
+<tr><td><strong>Summit Chaser</strong><br><span class="tag tag-green">expedition-focused</span></td><td>"As a Summit Chaser, your training profile points toward the big peaks. Expedition-level fitness demands a massive aerobic base, mountain-specific strength under load, and precise periodization that peaks when you arrive at base camp."</td></tr>
+<tr><td><strong>Trail Blazer</strong><br><span class="tag tag-green">race-focused</span></td><td>"As a Trail Blazer, your profile centers on mountain race performance. Building vertical gain capacity, protecting your body for long descents, and structuring your intensity distribution are the keys to your next breakthrough."</td></tr>
+<tr><td><strong>Alpine Apprentice</strong><br><span class="tag tag-amber">beginner-focused</span></td><td>"As an Alpine Apprentice, you are at the beginning of an exciting journey into mountain sports. The foundation you build now -- aerobic base, mountain-specific strength, and consistent training habits -- will support every objective ahead."</td></tr>
+<tr><td><strong>Mountain Multisport</strong><br><span class="tag tag-blue">cross-discipline</span></td><td>"As a Mountain Multisport Athlete, your cross-discipline lifestyle is your greatest asset. The aerobic base you build transfers across every mountain sport. Smart seasonal periodization keeps you performing year-round without burnout."</td></tr>
+<tr><td><strong>Comeback Climber</strong><br><span class="tag tag-purple">returning athlete</span></td><td>"As a Comeback Climber, your mountain experience is still there. The fitness you built before is dormant, not gone. A gradual, structured return that prioritizes patience and recovery will reconnect you with the athlete you know you are."</td></tr>
+</table>
+
+<h3>How Profile Blocks Evolve Across Sequences</h3>
+<p>Profile blocks are not static. They adapt to the context of each email. Here is how the Summit Chaser profile block changes across three different emails:</p>
+
+<table>
+<tr><th>Email</th><th>Context</th><th>Summit Chaser Block</th></tr>
+<tr><td><span class="tag tag-green">W-1</span> Welcome</td><td>Delivering quiz results</td><td>Identifies the profile, names the key training demands (aerobic base, strength under load, periodization)</td></tr>
+<tr><td><span class="tag tag-amber">WA-1</span> Warm Activation</td><td>Diagnosing the gap</td><td>"As a Summit Chaser scoring in the warm range, you have the drive and the training volume. What is likely missing is the structured periodization that turns raw effort into expedition-ready fitness."</td></tr>
+<tr><td><span class="tag tag-red">HP-1</span> Hot Path</td><td>Validating readiness</td><td>"Your Summit Chaser profile at the hot level means you have the volume, the commitment, and the specificity. What separates a strong preparation from an optimal one is having every session calibrated to your specific expedition demands."</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Design principle:</strong> Each profile block is written for the specific email context, not just copied across templates. The Welcome block introduces, the Warm block diagnoses, the Hot block validates. The profile identity stays consistent while the message adapts to the email's purpose.
+</div>
+</div>
+</details>
+
+<!-- SECTION 3 -->
+<details>
+<summary><span class="section-num">3</span> Answer Callbacks in Action</summary>
+<div class="section-content">
+<p>Answer callbacks inject targeted advice based on the lead's specific quiz answers. Two questions were identified as <strong>diagnostic questions</strong> -- questions whose answers produce the most actionable personalization:</p>
+
+<table>
+<tr><th>Callback</th><th>Question</th><th>Why This Question</th><th>Emails Using It</th></tr>
+<tr><td><code>{{answer_callback_1}}</code></td><td><strong>Q1: Mountain Discipline</strong><br>Mountaineer, Trail Runner, Climber, Mountain Multisporter, Getting Started</td><td>Determines training context. A Mountaineer needs altitude prep; a Trail Runner needs vertical gain capacity. Every training recommendation changes based on this answer.</td><td>7 emails<br><span class="tag tag-green">W-1</span> <span class="tag tag-blue">CN-1</span> <span class="tag tag-blue">CN-5</span> <span class="tag tag-amber">WA-1</span> <span class="tag tag-amber">WA-6</span> <span class="tag tag-red">HP-1</span> <span class="tag tag-purple">RE-2</span></td></tr>
+<tr><td><code>{{answer_callback_2}}</code></td><td><strong>Q5: Biggest Challenge</strong><br>Validating approach, Plateau, Time-crunched, Comeback, Don't know where to start</td><td>Names the pain point. A plateaued athlete needs structural change; a time-crunched athlete needs efficiency. Every solution framing changes based on this answer.</td><td>5 emails<br><span class="tag tag-green">W-3</span> <span class="tag tag-blue">CN-3</span> <span class="tag tag-blue">CN-7</span> <span class="tag tag-amber">WA-3</span> <span class="tag tag-red">HP-3</span></td></tr>
+</table>
+
+<h3>Example: Same Email, Different Challenges (W-3)</h3>
+<p>Email W-3 delivers training principles. The <code>{{answer_callback_2}}</code> tailors the application based on Q5:</p>
+
+<table>
+<tr><th>Q5 Answer</th><th>Callback Content</th></tr>
+<tr><td><strong>Validating approach</strong></td><td>"If your biggest challenge is knowing whether your training approach is working: a heart rate drift test is one simple way to measure progress..."</td></tr>
+<tr><td><strong>Plateau</strong></td><td>"If you are stuck at a plateau: the principles of consistency, gradualness, and modulation may reveal the issue. Plateaus often come from too much time at moderate intensity..."</td></tr>
+<tr><td><strong>Time-crunched</strong></td><td>"If balancing training with life is your challenge: consistency, gradualness, and modulation apply to your schedule too. Three quality sessions per week, applied consistently over months..."</td></tr>
+<tr><td><strong>Comeback</strong></td><td>"If you are coming back from injury or a break: Steve House's story is your blueprint. The same patience and gradualness that guided his return..."</td></tr>
+<tr><td><strong>Don't know where to start</strong></td><td>"If you don't know where to start: consistency is the first principle for a reason. Show up three to four times per week for easy aerobic sessions..."</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Key insight:</strong> Answer callbacks create a "they read my mind" moment. The lead chose "I'm stuck at a plateau" in the quiz. Three days later, an email arrives that directly addresses plateaus with specific, actionable advice. This is not a coincidence -- it is engineered personalization.
+</div>
+</div>
+</details>
+
+<!-- SECTION 4 -->
+<details>
+<summary><span class="section-num">4</span> Which Emails Use What</summary>
+<div class="section-content">
+<p>Not every email has content blocks. The system applies personalization where it adds the most value. Here is the complete map:</p>
+
+<h3>Welcome Sequence (3 emails)</h3>
+<table>
+<tr><th>Email</th><th>Subject Context</th><th style="text-align:center">Profile Block</th><th style="text-align:center">Q1 Callback</th><th style="text-align:center">Q5 Callback</th></tr>
+<tr><td><strong>W-1</strong></td><td>Quiz results delivery</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+<tr><td><strong>W-2</strong></td><td>80/20 training principle</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>W-3</strong></td><td>Core training principles</td><td style="text-align:center">--</td><td style="text-align:center">--</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td></tr>
+</table>
+
+<h3>Cold Nurture Sequence (7 emails)</h3>
+<table>
+<tr><th>Email</th><th>Subject Context</th><th style="text-align:center">Profile Block</th><th style="text-align:center">Q1 Callback</th><th style="text-align:center">Q5 Callback</th></tr>
+<tr><td><strong>CN-1</strong></td><td>Foundation stage education</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+<tr><td><strong>CN-2</strong></td><td>General education</td><td style="text-align:center">--</td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>CN-3</strong></td><td>Gym-to-mountain transition</td><td style="text-align:center">--</td><td style="text-align:center">--</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td></tr>
+<tr><td><strong>CN-4</strong></td><td>Athlete success story</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>CN-5</strong></td><td>Heart rate zone training</td><td style="text-align:center">--</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+<tr><td><strong>CN-6</strong></td><td>Community belonging</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>CN-7</strong></td><td>Three paths forward</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td></tr>
+</table>
+
+<h3>Warm Activation Sequence (6 emails)</h3>
+<table>
+<tr><th>Email</th><th>Subject Context</th><th style="text-align:center">Profile Block</th><th style="text-align:center">Q1 Callback</th><th style="text-align:center">Q5 Callback</th></tr>
+<tr><td><strong>WA-1</strong></td><td>Effort-results gap diagnosis</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+<tr><td><strong>WA-2</strong></td><td>Polarized training deep-dive</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>WA-3</strong></td><td>Athlete plateau story</td><td style="text-align:center">--</td><td style="text-align:center">--</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td></tr>
+<tr><td><strong>WA-4</strong></td><td>Periodization education</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>WA-5</strong></td><td>Coaching introduction</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>WA-6</strong></td><td>Recommended next step</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+</table>
+
+<h3>Hot Path Sequence (4 emails)</h3>
+<table>
+<tr><th>Email</th><th>Subject Context</th><th style="text-align:center">Profile Block</th><th style="text-align:center">Q1 Callback</th><th style="text-align:center">Q5 Callback</th></tr>
+<tr><td><strong>HP-1</strong></td><td>Readiness validation</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+<tr><td><strong>HP-2</strong></td><td>Expedition case study</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>HP-3</strong></td><td>Guarantee and coaching</td><td style="text-align:center">--</td><td style="text-align:center">--</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td></tr>
+<tr><td><strong>HP-4</strong></td><td>Coach matching</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+</table>
+
+<h3>Re-Engagement Sequence (3 emails)</h3>
+<table>
+<tr><th>Email</th><th>Subject Context</th><th style="text-align:center">Profile Block</th><th style="text-align:center">Q1 Callback</th><th style="text-align:center">Q5 Callback</th></tr>
+<tr><td><strong>RE-1</strong></td><td>Check-in and reminder</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+<tr><td><strong>RE-2</strong></td><td>New content highlights</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td></tr>
+<tr><td><strong>RE-3</strong></td><td>Graceful close</td><td style="text-align:center"><span class="tag tag-green">Yes</span></td><td style="text-align:center">--</td><td style="text-align:center">--</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Pattern:</strong> Profile blocks appear most frequently because they define the overall tone. Answer callbacks appear at strategic moments: discipline-specific training advice (Q1) in educational emails, and challenge-specific guidance (Q5) in problem-solving emails. CN-2 is the only email with no content blocks -- it delivers universal educational content that applies to all profiles equally.
+</div>
+</div>
+</details>
+
+<!-- SECTION 5 -->
+<details>
+<summary><span class="section-num">5</span> How It Works</summary>
+<div class="section-content">
+<p>Content blocks are stored as rows in a CSV file, seeded into a database table, and resolved at email send time. Here is the process:</p>
+
+<div class="flow-step">
+<div class="flow-num">1</div>
+<div><h4>Content Blocks CSV</h4><p>145 rows of personalized content. Each row maps to one email + one profile or one answer. The CSV has 5 columns: Email ID, Block Type, Block Key, Block Value, and Content.</p></div>
+</div>
+<div class="flow-arrow">&darr;</div>
+<div class="flow-step">
+<div class="flow-num">2</div>
+<div><h4>Database Seeding</h4><p>During setup, the CSV is parsed and every row is inserted into the <code>content_blocks</code> database table. This happens once during deployment -- the same command that creates the quiz tables.</p></div>
+</div>
+<div class="flow-arrow">&darr;</div>
+<div class="flow-step">
+<div class="flow-num">3</div>
+<div><h4>Email Scheduling</h4><p>When a lead completes the quiz, the system schedules their email sequence based on their temperature score (hot/warm/cold). Each scheduled email references a template ID like "W-1" or "CN-4."</p></div>
+</div>
+<div class="flow-arrow">&darr;</div>
+<div class="flow-step">
+<div class="flow-num">4</div>
+<div><h4>Content Block Resolution</h4><p>When it is time to send an email, the system looks up the template, then queries the content blocks table for matching blocks. It finds the right profile block (based on the lead's profile ID) and the right answer callbacks (based on their Q1 and Q5 answers).</p></div>
+</div>
+<div class="flow-arrow">&darr;</div>
+<div class="flow-step">
+<div class="flow-num">5</div>
+<div><h4>Variable Replacement</h4><p>The system replaces <code>{{profile_block}}</code>, <code>{{answer_callback_1}}</code>, and <code>{{answer_callback_2}}</code> in the email body with the matched content. If no block is found for a variable, it is replaced with an empty string (no error, the email still sends).</p></div>
+</div>
+<div class="flow-arrow">&darr;</div>
+<div class="flow-step">
+<div class="flow-num">6</div>
+<div><h4>Personalized Email Sent</h4><p>The lead receives an email that reads as if it were written specifically for them. A Summit Chaser mountaineer stuck at a plateau gets different content than an Alpine Apprentice who does not know where to start.</p></div>
+</div>
+
+<div class="highlight">
+<strong>Graceful fallbacks:</strong> If a content block is missing (for example, if a new profile is added but blocks have not been written yet), the placeholder is silently removed. The email still sends with the generic template content intact. No errors, no broken emails.
+</div>
+</div>
+</details>
+
+<!-- SECTION 6 -->
+<details>
+<summary><span class="section-num">6</span> The Math</summary>
+<div class="section-content">
+<p>The content blocks system creates an enormous number of unique email experiences from a manageable set of templates and blocks.</p>
+
+<h3>Block Counts</h3>
+<table>
+<tr><th>Category</th><th>Calculation</th><th>Count</th></tr>
+<tr><td><strong>Profile blocks</strong></td><td>5 profiles &times; 17 emails with <code>{{profile_block}}</code></td><td>85 blocks</td></tr>
+<tr><td><strong>Q1 answer callbacks</strong></td><td>5 discipline answers &times; 7 emails with <code>{{answer_callback_1}}</code></td><td>35 blocks</td></tr>
+<tr><td><strong>Q5 answer callbacks</strong></td><td>5 challenge answers &times; 5 emails with <code>{{answer_callback_2}}</code></td><td>25 blocks</td></tr>
+<tr><td><strong>Total content blocks</strong></td><td></td><td><strong>145 blocks</strong></td></tr>
+</table>
+
+<h3>Unique Combinations</h3>
+<p>Each lead's email experience is determined by three variables: temperature, profile, and quiz answers.</p>
+
+<table>
+<tr><th>Variable</th><th>Options</th><th>Determines</th></tr>
+<tr><td>Temperature</td><td>3 (hot, warm, cold)</td><td>Which sequence track they receive</td></tr>
+<tr><td>Profile</td><td>5</td><td>Which profile blocks appear in 17 emails</td></tr>
+<tr><td>Q1 Answer</td><td>5</td><td>Which discipline callback appears in 7 emails</td></tr>
+<tr><td>Q5 Answer</td><td>5</td><td>Which challenge callback appears in 5 emails</td></tr>
+</table>
+
+<p>Total unique email journeys: <strong>3 &times; 5 &times; 5 &times; 5 = 375</strong> distinct email experiences, all generated from 26 templates and 145 content blocks.</p>
+
+<div class="highlight">
+<strong>In context:</strong> A traditional email funnel with the same level of personalization would require writing 375 separate email sequences. The content blocks system achieves the same result with 26 templates and 145 modular blocks -- a 93% reduction in content creation while delivering equivalent personalization depth.
+</div>
+
+<h3>Per-Sequence Personalization Depth</h3>
+<table>
+<tr><th>Sequence</th><th>Emails</th><th>With Profile Block</th><th>With Answer Callback</th><th>Unique Variants</th></tr>
+<tr><td><strong>Welcome</strong></td><td>3</td><td>2</td><td>2</td><td>5 &times; 5 &times; 5 = 125</td></tr>
+<tr><td><strong>Cold Nurture</strong></td><td>7</td><td>4</td><td>3</td><td>5 &times; 5 &times; 5 = 125</td></tr>
+<tr><td><strong>Warm Activation</strong></td><td>6</td><td>5</td><td>2</td><td>5 &times; 5 &times; 5 = 125</td></tr>
+<tr><td><strong>Hot Path</strong></td><td>4</td><td>3</td><td>2</td><td>5 &times; 5 &times; 5 = 125</td></tr>
+<tr><td><strong>Re-Engagement</strong></td><td>3</td><td>3</td><td>1</td><td>5 &times; 5 = 25</td></tr>
+</table>
+</div>
+</details>
+
+</div>
+</body>
+</html>
